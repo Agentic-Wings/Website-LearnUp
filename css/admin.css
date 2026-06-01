@@ -225,11 +225,14 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   max-width: 1200px;
+  min-width: 0;
+  width: 100%;
 }
 
 @media (max-width: 600px) {
   .main {
     padding: 1rem;
+    overflow-x: hidden;
   }
 }
 
@@ -240,6 +243,18 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .topbar-right {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
 }
 
 .topbar-left h1 {
@@ -362,8 +377,14 @@ body {
 /* ── STAT CARDS ── */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .stat-card {
