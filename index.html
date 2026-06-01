@@ -1,0 +1,2908 @@
+  <!doctype html>
+  <html lang="id" data-theme="light">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta
+        name="description"
+        content="LearnUp – Platform bimbingan belajar online interaktif terbaik."
+      />
+      <title>LearnUp – Platform Belajar Online Interaktif</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      />
+      <link rel="stylesheet" href="css/landing.css" />
+</head>
+    <body>
+      <!-- ============================================================ LOADER ============================================================ -->
+      <div id="loader">
+        <div class="loader-logo">🎓 LearnUp</div>
+        <div class="loader-dots">
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+          <div class="loader-dot"></div>
+        </div>
+      </div>
+
+      <!-- Toast Notification -->
+      <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toast-msg">Berhasil didaftarkan!</span>
+      </div>
+
+      <!-- Animated background & particles -->
+      <div class="animated-bg"></div>
+      <canvas id="star-canvas"></canvas>
+      <canvas id="particle-canvas"></canvas>
+
+      <button
+        class="back-top"
+        id="backTop"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      >
+        <i class="fas fa-chevron-up"></i>
+      </button>
+
+      <!-- ============================================================ MOBILE OVERLAY & MENU ============================================================ -->
+      <!-- Page Transition Overlay -->
+      <div id="pageTransitionOverlay"></div>
+
+      <!-- Cursor follower dibuat via JS -->
+
+
+
+      <div class="mob-overlay" id="mobOverlay"></div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a class="mob-nav-item" href="#solusi" onclick="closeMob()">
+          <div class="mob-nav-icon" style="background: rgba(108, 99, 255, 0.12)">
+            💡
+          </div>
+          <div class="mob-nav-info">
+            <span>Solusi</span><small>Kenapa LearnUp cocok untukmu</small>
+          </div>
+        </a>
+        <a class="mob-nav-item" href="#fitur" onclick="closeMob()">
+          <div class="mob-nav-icon" style="background: rgba(67, 230, 197, 0.12)">
+            ⚡
+          </div>
+          <div class="mob-nav-info">
+            <span>Fitur</span><small>Semua fitur unggulan kami</small>
+          </div>
+        </a>
+        <a class="mob-nav-item" href="#cara-kerja" onclick="closeMob()">
+          <div class="mob-nav-icon" style="background: rgba(255, 101, 132, 0.12)">
+            🗺️
+          </div>
+          <div class="mob-nav-info">
+            <span>Cara Kerja</span><small>Langkah mudah mulai belajar</small>
+          </div>
+        </a>
+        <a class="mob-nav-item" href="#harga" onclick="closeMob()">
+          <div class="mob-nav-icon" style="background: rgba(255, 209, 102, 0.12)">
+            💰
+          </div>
+          <div class="mob-nav-info">
+            <span>Harga</span><small>Basic gratis, Premium &amp; Pro</small>
+          </div>
+        </a>
+        <a class="mob-nav-item" href="#testimoni" onclick="closeMob()">
+          <div class="mob-nav-icon" style="background: rgba(108, 99, 255, 0.12)">
+            💬
+          </div>
+          <div class="mob-nav-info">
+            <span>Ulasan</span><small>Kata mereka tentang LearnUp</small>
+          </div>
+        </a>
+        <a class="mob-nav-item" href="#tim" onclick="closeMob()">
+          <div class="mob-nav-icon" style="background: rgba(67, 230, 197, 0.12)">
+            👥
+          </div>
+          <div class="mob-nav-info">
+            <span>Tim</span><small>Orang-orang di balik LearnUp</small>
+          </div>
+        </a>
+        <a class="mob-cta-btn" href="#" onclick="closeMob(); openLoginModal(); return false;"
+          ><i class="fas fa-user-lock"></i> Login</a
+        >
+      </div>
+
+      <!-- ============================================================ NAVBAR ============================================================ -->
+      <nav class="navbar" id="navbar">
+        <a href="#hero" class="logo">
+          <div class="logo-icon">🎓</div>
+          LearnUp
+        </a>
+        <ul class="nav-links">
+          <li><a href="#solusi">Solusi</a></li>
+          <li><a href="#dashboard">Dashboard</a></li>
+          <li><a href="#fitur">Fitur</a></li>
+          <li><a href="#cara-kerja">Cara Kerja</a></li>
+          <li><a href="#harga">Harga</a></li>
+          <li><a href="#testimoni">Ulasan</a></li>
+          <li><a href="#tim">Tim</a></li>
+          <li><a href="#" class="nav-cta" onclick="openLoginModal(); return false;">Login</a></li>
+        </ul>
+        <div class="nav-right">
+          <button
+            class="theme-btn"
+            id="themeBtn"
+            title="Toggle Dark/Light Mode"
+            aria-label="Toggle Dark/Light Mode"
+          >
+            <div class="toggle-track">
+              <div class="toggle-knob"></div>
+            </div>
+          </button>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- ============================================================ HERO ============================================================ -->
+      <section id="hero">
+        <div class="hero-container">
+          <div class="hero-grid">
+            <div class="hero-left">
+              <div class="hero-badge">
+                <span class="dot"></span>✨ Platform Belajar Generasi Berikutnya
+              </div>
+              <h1 class="hero-title">
+                Belajar Lebih<br /><span class="gradient-text"
+                  >Cerdas &amp; Seru</span
+                ><br />Bersama LearnUp
+              </h1>
+              <p class="hero-subtitle">
+                Platform untuk pelajar dan mahasiswa yang kesulitan memahami materi, mudah bosan,
+                dan membutuhkan bimbingan personal dalam satu aplikasi yang ringkas, terstruktur, dan fleksibel
+              </p>
+              <div class="hero-cta-group">
+                <a href="#harga" class="btn btn-primary"
+                  ><i class="fas fa-rocket"></i> Coba Gratis Sekarang</a
+                >
+                <a href="#fitur" class="btn btn-outline"
+                  ><i class="fas fa-play-circle"></i> Lihat Fitur</a
+                >
+              </div>
+              <div class="hero-stats">
+                <div class="stat-item">
+                  <div class="stat-value" id="stat0">50K+</div>
+                  <div class="stat-label">Pelajar Aktif</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" id="stat1">500+</div>
+                  <div class="stat-label">Modul Materi</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" id="stat2">98%</div>
+                  <div class="stat-label">Kepuasan Pengguna</div>
+                </div>
+              </div>
+            </div>
+            <div class="hero-visual">
+              <div class="hero-blob hero-blob-1"></div>
+              <div class="hero-blob hero-blob-2"></div>
+              <div class="hero-3d-wrapper" id="hero3dWrapper">
+                <div class="hero-3d-scene" id="hero3dScene">
+                  <div class="orbit-ring orbit-ring-1">
+                    <div class="orbit-dot orbit-dot-1"></div>
+                  </div>
+                  <div class="orbit-ring orbit-ring-2">
+                    <div class="orbit-dot orbit-dot-2"></div>
+                  </div>
+                  <div class="hero-phone">
+                    <div class="phone-screen">
+                      <div class="phone-header">
+                        <div class="phone-avatar"></div>
+                        <div class="phone-title"></div>
+                      </div>
+                      <div class="phone-card">
+                        <div class="phone-bar full"></div>
+                        <div class="phone-bar med"></div>
+                        <div class="phone-bar sm"></div>
+                      </div>
+                      <div class="phone-card" style="flex: 1">
+                        <div style="font-size: 1rem; margin-bottom: 0.3rem">
+                          📚 📝 🎯
+                        </div>
+                        <div class="phone-bar full"></div>
+                        <div
+                          class="phone-bar"
+                          style="
+                            width: 60%;
+                            background: rgba(255, 209, 102, 0.8);
+                            height: 5px;
+                            border-radius: 3px;
+                            margin-bottom: 0.25rem;
+                          "
+                        ></div>
+                        <div class="phone-progress">
+                          <div class="phone-progress-fill"></div>
+                        </div>
+                        <div
+                          style="
+                            color: rgba(255, 255, 255, 0.45);
+                            font-size: 0.5rem;
+                            margin-top: 0.25rem;
+                          "
+                        >
+                          Progress: 85% selesai
+                        </div>
+                      </div>
+                      <div style="display: flex; gap: 0.35rem">
+                        <div
+                          style="
+                            flex: 1;
+                            background: rgba(108, 99, 255, 0.3);
+                            border-radius: 7px;
+                            padding: 0.35rem;
+                            text-align: center;
+                            font-size: 0.52rem;
+                            color: rgba(255, 255, 255, 0.7);
+                          "
+                        >
+                          📖 Materi
+                        </div>
+                        <div
+                          style="
+                            flex: 1;
+                            background: rgba(67, 230, 197, 0.2);
+                            border-radius: 7px;
+                            padding: 0.35rem;
+                            text-align: center;
+                            font-size: 0.52rem;
+                            color: rgba(255, 255, 255, 0.7);
+                          "
+                        >
+                          📝 Quiz
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bubble bubble-1">
+                  <span style="color: #43e6c5">✓</span> Nilai Naik 95%
+                </div>
+                <div class="bubble bubble-2">🏆 Ranking #1</div>
+                <div class="bubble bubble-3">⚡ AI Powered</div>
+                <div class="bubble bubble-4">👨‍🏫 500+ Mentor</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg
+          viewBox="0 0 1200 50"
+          preserveAspectRatio="none"
+          style="height: 35px"
+        >
+          <path
+            d="M0,25 C300,50 900,0 1200,25 L1200,50 L0,50 Z"
+            fill="rgba(108,99,255,.05)"
+          />
+        </svg>
+      </div>
+
+      <!-- ============================================================ SOLUSI ============================================================ -->
+      <section id="solusi" class="section">
+        <div class="container">
+          <div class="text-center reveal">
+            <div class="section-badge">💡 Solusi Kami</div>
+            <h2 class="section-title">
+              LearnUp Hadir Sebagai <span class="gradient-text">Solusi Lengkap</span>
+            </h2>
+            <p class="section-subtitle">
+              Tiga konsep utama LearnUp yang membuat belajar menjadi lebih efektif,
+              terstruktur, dan menyenangkan.
+            </p>
+          </div>
+          <div class="solusi-grid">
+            <div
+              class="glass-card solusi-card solusi-card-1 reveal reveal-delay-1"
+            >
+              <div class="solusi-card-header">
+                <span class="solusi-icon">📖</span>
+                <div class="solusi-card-title">Materi Ringkas &amp; Visual</div>
+              </div>
+              <div class="solusi-card-body">
+                <p class="solusi-desc">
+                  Video pendek 5–15 menit dengan visualisasi yang mampu
+                  mempercepat pemahaman hingga 3× lebih cepat dari membaca teks biasa.
+                </p>
+                <div class="solusi-badges">
+                  <span class="solusi-badge">🧠 Visual Learning</span>
+                  <span class="solusi-badge">⏱️ 5–15 Menit</span>
+                  <span class="solusi-badge">🎬 HD Quality</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="glass-card solusi-card solusi-card-2 reveal reveal-delay-2"
+            >
+              <div class="solusi-card-header">
+                <span class="solusi-icon">🗂️</span>
+                <div class="solusi-card-title">Struktur Belajar yang Jelas</div>
+              </div>
+              <div class="solusi-card-body">
+                <p class="solusi-desc">
+                  Kurikulum yang terstruktur dengan urutan logis sehingga
+                  tidak ada yang terlewat dan setiap konsep dibangun di atas fondasi yang kuat.
+                </p>
+                <div class="solusi-badges">
+                  <span
+                    class="solusi-badge"
+                    style="border-color: rgba(67, 230, 197, 0.3); color: #43e6c5"
+                    >📋 Kurikulum</span
+                  >
+                  <span
+                    class="solusi-badge"
+                    style="border-color: rgba(67, 230, 197, 0.3); color: #43e6c5"
+                    >🗺️ Roadmap</span
+                  >
+                  <span
+                    class="solusi-badge"
+                    style="border-color: rgba(67, 230, 197, 0.3); color: #43e6c5"
+                    >✅ Terstruktur</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="glass-card solusi-card solusi-card-3 reveal reveal-delay-3"
+            >
+              <div class="solusi-card-header">
+                <span class="solusi-icon">🤖</span>
+                <div class="solusi-card-title">Pengalaman Belajar Personal</div>
+              </div>
+              <div class="solusi-card-body">
+                <p class="solusi-desc">
+                  Sistem adaptif yang menyesuaikan konten, kecepatan, dan
+                  tingkat kesulitan berdasarkan pola belajar unik setiap pengguna..
+                </p>
+                <div class="solusi-badges">
+                  <span
+                    class="solusi-badge"
+                    style="border-color: rgba(255, 101, 132, 0.3); color: #ff6584"
+                    >🎯 Adaptive</span
+                  >
+                  <span
+                    class="solusi-badge"
+                    style="border-color: rgba(255, 101, 132, 0.3); color: #ff6584"
+                    >👤 Personal</span
+                  >
+                  <span
+                    class="solusi-badge"
+                    style="border-color: rgba(255, 101, 132, 0.3); color: #ff6584"
+                    >📊 AI-Driven</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg
+          viewBox="0 0 1200 50"
+          preserveAspectRatio="none"
+          style="height: 35px"
+        >
+          <path
+            d="M0,0 C400,50 800,0 1200,35 L1200,50 L0,50 Z"
+            fill="rgba(67,230,197,.05)"
+          />
+        </svg>
+      </div>
+
+      <!-- ============================================================ KEMAJUAN BELAJAR ============================================================ -->
+      <section
+        id="kemajuan"
+        class="section"
+        style="background: rgba(108, 99, 255, 0.03)"
+      >
+        <div class="container">
+          <div class="text-center reveal">
+            <div class="section-badge">📈 Progress Kamu</div>
+            <h2 class="section-title">
+              Kemajuan <span class="gradient-text">Belajar Kamu</span>
+            </h2>
+            <p class="section-subtitle">
+              Pantau kemajuanmu di setiap mata pelajaran secara real-time dengan
+              visualisasi yang informatif dan motivatif.
+            </p>
+          </div>
+          <div class="kemajuan-grid mt-section">
+            <!-- Matematika 78% -->
+            <div class="glass-card mapel-card reveal reveal-delay-1">
+              <div class="mapel-header">
+                <div class="mapel-info">
+                  <span class="mapel-icon">📐</span
+                  ><span class="mapel-name">Matematika</span>
+                </div>
+                <span class="mapel-pct">78%</span>
+              </div>
+              <div class="mapel-bar-bg">
+                <div class="mapel-bar-fill" style="width: 78%"></div>
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 600;
+                  color: var(--text-muted);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                📖 Bab 2 - Statistika
+              </div>
+              <div class="mapel-topics">
+                <span class="mapel-topic">📐 Aljabar</span
+                ><span class="mapel-topic">📊 Statistika</span
+                ><span class="mapel-topic">∫ Kalkulus</span>
+              </div>
+            </div>
+            <!-- Fisika 50% -->
+            <div class="glass-card mapel-card reveal reveal-delay-2">
+              <div class="mapel-header">
+                <div class="mapel-info">
+                  <span class="mapel-icon">⚡</span
+                  ><span class="mapel-name">Fisika</span>
+                </div>
+                <span class="mapel-pct">50%</span>
+              </div>
+              <div class="mapel-bar-bg">
+                <div class="mapel-bar-fill" style="width: 50%"></div>
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 600;
+                  color: var(--text-muted);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                📖 Bab 3 - Dinamika
+              </div>
+              <div class="mapel-topics">
+                <span class="mapel-topic">⚡ Mekanika</span
+                ><span class="mapel-topic">🔌 Listrik</span
+                ><span class="mapel-topic">🌊 Gelombang</span>
+              </div>
+            </div>
+            <!-- Kimia 90% -->
+            <div class="glass-card mapel-card reveal reveal-delay-3">
+              <div class="mapel-header">
+                <div class="mapel-info">
+                  <span class="mapel-icon">🧪</span
+                  ><span class="mapel-name">Kimia</span>
+                </div>
+                <span class="mapel-pct">90%</span>
+              </div>
+              <div class="mapel-bar-bg">
+                <div class="mapel-bar-fill" style="width: 90%"></div>
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 600;
+                  color: var(--text-muted);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                📖 Bab 4 - Termokimia
+              </div>
+              <div class="mapel-topics">
+                <span class="mapel-topic">⚗️ Atom</span
+                ><span class="mapel-topic">🔬 Reaksi</span
+                ><span class="mapel-topic">🌿 Organik</span>
+              </div>
+            </div>
+            <!-- Sejarah 63% -->
+            <div class="glass-card mapel-card reveal reveal-delay-4">
+              <div class="mapel-header">
+                <div class="mapel-info">
+                  <span class="mapel-icon">🏛️</span
+                  ><span class="mapel-name">Sejarah</span>
+                </div>
+                <span class="mapel-pct">63%</span>
+              </div>
+              <div class="mapel-bar-bg">
+                <div class="mapel-bar-fill" style="width: 63%"></div>
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 600;
+                  color: var(--text-muted);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                📖 Bab 5 - Kemerdekaan
+              </div>
+              <div class="mapel-topics">
+                <span class="mapel-topic">🏛️ Nasional</span
+                ><span class="mapel-topic">🌍 Dunia</span
+                ><span class="mapel-topic">🎗️ Kemerdekaan</span>
+              </div>
+            </div>
+            <!-- Bahasa Inggris 85% -->
+            <div class="glass-card mapel-card reveal reveal-delay-5">
+              <div class="mapel-header">
+                <div class="mapel-info">
+                  <span class="mapel-icon">🌍</span
+                  ><span class="mapel-name">Bahasa Inggris</span>
+                </div>
+                <span class="mapel-pct">85%</span>
+              </div>
+              <div class="mapel-bar-bg">
+                <div class="mapel-bar-fill" style="width: 85%"></div>
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 600;
+                  color: var(--text-muted);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                📖 Bab 3 - Reading
+              </div>
+              <div class="mapel-topics">
+                <span class="mapel-topic">📝 Grammar</span
+                ><span class="mapel-topic">📖 Reading</span
+                ><span class="mapel-topic">🗣️ Speaking</span>
+              </div>
+            </div>
+            <!-- Ekonomi 42% -->
+            <div class="glass-card mapel-card reveal reveal-delay-6">
+              <div class="mapel-header">
+                <div class="mapel-info">
+                  <span class="mapel-icon">📊</span
+                  ><span class="mapel-name">Ekonomi</span>
+                </div>
+                <span class="mapel-pct">42%</span>
+              </div>
+              <div class="mapel-bar-bg">
+                <div class="mapel-bar-fill" style="width: 42%"></div>
+              </div>
+              <div
+                style="
+                  font-size: 0.72rem;
+                  font-weight: 600;
+                  color: var(--text-muted);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                📖 Bab 2 - Makroekonomi
+              </div>
+              <div class="mapel-topics">
+                <span class="mapel-topic">📉 Mikro</span
+                ><span class="mapel-topic">📈 Makro</span
+                ><span class="mapel-topic">🧾 Akuntansi</span>
+              </div>
+            </div>
+            <!-- Biologi 71% -->
+            <div class="glass-card mapel-card reveal reveal-delay-1">
+              <div class="mapel-header">
+                <div class="mapel-info">
+                  <span class="mapel-icon">🧬</span
+                  ><span class="mapel-name">Biologi</span>
+                </div>
+                <span class="mapel-pct">71%</span>
+              </div>
+              <div class="mapel-bar-bg">
+                <div class="mapel-bar-fill" style="width: 71%"></div>
+              </div>
+              <div style="font-size: 0.72rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;">
+                📖 Bab 6 - Genetika
+              </div>
+              <div class="mapel-topics">
+                <span class="mapel-topic">🧬 Genetika</span
+                ><span class="mapel-topic">🔬 Sel</span
+                ><span class="mapel-topic">🌿 Ekosistem</span>
+              </div>
+            </div>
+            <!-- Bahasa Indonesia 88% -->
+            <div class="glass-card mapel-card reveal reveal-delay-2">
+              <div class="mapel-header">
+                <div class="mapel-info">
+                  <span class="mapel-icon">📝</span
+                  ><span class="mapel-name">Bahasa Indonesia</span>
+                </div>
+                <span class="mapel-pct">88%</span>
+              </div>
+              <div class="mapel-bar-bg">
+                <div class="mapel-bar-fill" style="width: 88%"></div>
+              </div>
+              <div style="font-size: 0.72rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;">
+                📖 Bab 4 - Karya Ilmiah
+              </div>
+              <div class="mapel-topics">
+                <span class="mapel-topic">✍️ Menulis</span
+                ><span class="mapel-topic">📚 Sastra</span
+                ><span class="mapel-topic">🗣️ Pidato</span>
+              </div>
+            </div>
+            <!-- Informatika 55% -->
+            <div class="glass-card mapel-card reveal reveal-delay-3">
+              <div class="mapel-header">
+                <div class="mapel-info">
+                  <span class="mapel-icon">💻</span
+                  ><span class="mapel-name">Informatika</span>
+                </div>
+                <span class="mapel-pct">55%</span>
+              </div>
+              <div class="mapel-bar-bg">
+                <div class="mapel-bar-fill" style="width: 55%"></div>
+              </div>
+              <div style="font-size: 0.72rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem;">
+                📖 Bab 3 - Algoritma
+              </div>
+              <div class="mapel-topics">
+                <span class="mapel-topic">🖥️ Coding</span
+                ><span class="mapel-topic">🔗 Jaringan</span
+                ><span class="mapel-topic">🤖 AI Dasar</span>
+              </div>
+            </div>
+          </div>
+          <!-- Streak Card -->
+          <div class="streak-card reveal" style="margin-top: 2rem">
+            <span class="streak-emoji">🔥</span>
+            <div class="streak-text">Streak 7 Hari!</div>
+            <div class="streak-sub">
+              Kamu luar biasa! Terus pertahankan semangat belajarmu setiap hari.
+            </div>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              gap: 0.25rem;
+              margin-top: 1rem;
+              flex-wrap: nowrap;
+              width: 100%;
+            "
+          >
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;">
+              <span style="font-size: 2rem" title="Hari 1">🔥</span>
+              <span style="font-size:0.65rem;opacity:0.8;font-weight:700;">Senin</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;">
+              <span style="font-size: 2rem" title="Hari 2">🔥</span>
+              <span style="font-size:0.65rem;opacity:0.8;font-weight:700;">Selasa</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;">
+              <span style="font-size: 2rem" title="Hari 3">🔥</span>
+              <span style="font-size:0.65rem;opacity:0.8;font-weight:700;">Rabu</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;">
+              <span style="font-size: 2rem" title="Hari 4">🔥</span>
+              <span style="font-size:0.65rem;opacity:0.8;font-weight:700;">Kamis</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;">
+              <span style="font-size: 2rem" title="Hari 5">🔥</span>
+              <span style="font-size:0.65rem;opacity:0.8;font-weight:700;">Jumat</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;">
+              <span style="font-size: 2rem" title="Hari 6">🔥</span>
+              <span style="font-size:0.65rem;opacity:0.8;font-weight:700;">Sabtu</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:0.2rem;">
+              <span style="font-size: 2rem" title="Hari 7">🔥</span>
+              <span style="font-size:0.65rem;opacity:0.8;font-weight:700;">Minggu</span>
+            </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" style="height: 35px">
+          <path d="M0,35 C300,0 900,50 1200,15 L1200,50 L0,50 Z" fill="rgba(108,99,255,.05)" />
+        </svg>
+      </div>
+
+      <!-- ============================================================ DASHBOARD PROGRESS ============================================================ -->
+      <section id="dashboard" class="section" style="background: rgba(108,99,255,0.02)">
+        <div class="container dashboard-container">
+          <div class="text-center reveal">
+            <div class="section-badge">📊 Dashboard Kamu</div>
+            <h2 class="section-title">
+              Pantau <span class="gradient-text">Progress Belajar</span> Kamu
+            </h2>
+            <p class="section-subtitle">
+              Dashboard real-time yang menampilkan semua aktivitas, pencapaian, dan perkembangan belajarmu
+              dalam satu tampilan yang modern dan informatif.
+            </p>
+          </div>
+
+          <!-- Profile Banner -->
+          <div class="dash-profile-banner dash-reveal dash-reveal-d1 reveal">
+            <div class="dash-avatar-large">🎓</div>
+            <div class="dash-profile-info">
+              <div class="dash-profile-name">Selamat Datang, Pelajar! 👋</div>
+              <div class="dash-profile-role">Siswa Premium · Level 14 Explorer</div>
+              <div class="dash-profile-stats">
+                <div class="dash-profile-stat">
+                  <span class="dash-profile-stat-val">🔥 7</span>
+                  <span class="dash-profile-stat-lbl">Hari Streak</span>
+                </div>
+                <div class="dash-profile-stat">
+                  <span class="dash-profile-stat-val">2.840</span>
+                  <span class="dash-profile-stat-lbl">Total XP</span>
+                </div>
+                <div class="dash-profile-stat">
+                  <span class="dash-profile-stat-val" id="dashClock">--:--</span>
+                  <span class="dash-profile-stat-lbl">Waktu Sekarang</span>
+                </div>
+              </div>
+            </div>
+            <div class="dash-level-badge">
+              <div class="dash-level-val">Lv.12</div>
+              <div class="dash-level-lbl">Explorer</div>
+              <div class="dash-xp-bar-wrap">
+                <div class="dash-xp-bar"></div>
+              </div>
+              <div class="dash-xp-label">2940 / 4200 XP</div>
+            </div>
+          </div>
+
+          <!-- Overview Stats -->
+          <div class="dash-overview">
+            <div class="dash-stat-card dash-stat-card-1 dash-reveal dash-reveal-d1 reveal reveal-delay-1">
+              <span class="dash-stat-icon">📚</span>
+              <div class="dash-stat-value" data-target="127" data-suffix="">127</div>
+              <div class="dash-stat-label">Modul Selesai</div>
+              <div class="dash-stat-trend">↑ +12 minggu ini</div>
+            </div>
+            <div class="dash-stat-card dash-stat-card-2 dash-reveal dash-reveal-d2 reveal reveal-delay-2">
+              <span class="dash-stat-icon">⏱️</span>
+              <div class="dash-stat-value" data-target="48" data-suffix="j">48j</div>
+              <div class="dash-stat-label">Total Waktu Belajar</div>
+              <div class="dash-stat-trend">↑ +5j minggu ini</div>
+            </div>
+            <div class="dash-stat-card dash-stat-card-3 dash-reveal dash-reveal-d3 reveal reveal-delay-3">
+              <span class="dash-stat-icon">🎯</span>
+              <div class="dash-stat-value" data-target="89" data-suffix="%">89%</div>
+              <div class="dash-stat-label">Rata-rata Nilai Quiz</div>
+              <div class="dash-stat-trend">↑ +4% bulan ini</div>
+            </div>
+            <div class="dash-stat-card dash-stat-card-4 dash-reveal dash-reveal-d4 reveal reveal-delay-4">
+              <span class="dash-stat-icon">🏆</span>
+              <div class="dash-stat-value" data-target="23" data-suffix="">23</div>
+              <div class="dash-stat-label">Badge Diraih</div>
+              <div class="dash-stat-trend">↑ +4 baru</div>
+            </div>
+          </div>
+
+          <!-- Main Grid: 2 rows of 2 -->
+          <div class="dash-main-grid">
+            <!-- Row 1: Aktivitas Belajar + Target Belajar -->
+            <div class="dash-row">
+            <!-- Activity Chart -->
+            <div class="dash-chart-card dash-reveal dash-reveal-d2 reveal reveal-delay-1">
+              <div class="dash-card-header">
+                <div class="dash-card-title">
+                  📈 Aktivitas Belajar 7 Hari
+                </div>
+                <span class="dash-card-badge">Minggu Ini</span>
+              </div>
+              <div class="activity-chart">
+                <div class="act-bar-wrap">
+                  <div class="act-bar act-bar-1" data-height="55%" style="height:0">
+                    <div class="act-bar-tooltip">Senin · 45 mnt</div>
+                  </div>
+                  <div class="act-bar-label">Senin</div>
+                </div>
+                <div class="act-bar-wrap">
+                  <div class="act-bar act-bar-2" data-height="75%" style="height:0">
+                    <div class="act-bar-tooltip">Selasa · 65 mnt</div>
+                  </div>
+                  <div class="act-bar-label">Selasa</div>
+                </div>
+                <div class="act-bar-wrap">
+                  <div class="act-bar act-bar-3" data-height="45%" style="height:0">
+                    <div class="act-bar-tooltip">Rabu · 38 mnt</div>
+                  </div>
+                  <div class="act-bar-label">Rabu</div>
+                </div>
+                <div class="act-bar-wrap">
+                  <div class="act-bar act-bar-4" data-height="90%" style="height:0">
+                    <div class="act-bar-tooltip">Kamis · 82 mnt</div>
+                  </div>
+                  <div class="act-bar-label">Kamis</div>
+                </div>
+                <div class="act-bar-wrap">
+                  <div class="act-bar act-bar-5" data-height="60%" style="height:0">
+                    <div class="act-bar-tooltip">Jumat · 52 mnt</div>
+                  </div>
+                  <div class="act-bar-label">Jumat</div>
+                </div>
+                <div class="act-bar-wrap">
+                  <div class="act-bar act-bar-6" data-height="100%" style="height:0">
+                    <div class="act-bar-tooltip">Sabtu · 95 mnt</div>
+                  </div>
+                  <div class="act-bar-label">Sabtu</div>
+                </div>
+                <div class="act-bar-wrap">
+                  <div class="act-bar act-bar-7" data-height="80%" style="height:0">
+                    <div class="act-bar-tooltip">Minggu · 70 mnt</div>
+                  </div>
+                  <div class="act-bar-label">Minggu</div>
+                </div>
+              </div>
+              <!-- Radial Progress per Mapel -->
+              <div class="dash-card-header" style="margin-top:1.6rem; margin-bottom:0.6rem;">
+                <div class="dash-card-title">🎯 Penguasaan Per Bidang</div>
+              </div>
+              <div class="radial-progress-wrap">
+                <!-- Sains -->
+                <div class="radial-item">
+                  <svg class="radial-svg" width="72" height="72" viewBox="0 0 72 72">
+                    <circle class="radial-bg" cx="36" cy="36" r="30"/>
+                    <circle class="radial-fill" cx="36" cy="36" r="30"
+                      stroke="url(#g1)" data-pct="82" data-r="30"
+                      style="stroke-dasharray:188.5;stroke-dashoffset:188.5"/>
+                    <text class="radial-text" x="36" y="36" font-size="12" font-weight="900" fill="var(--text-primary)">82%</text>
+                    <defs>
+                      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#6c63ff"/>
+                        <stop offset="100%" stop-color="#43e6c5"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="radial-label">⚗️ Sains</div>
+                </div>
+                <!-- Matematika -->
+                <div class="radial-item">
+                  <svg class="radial-svg" width="72" height="72" viewBox="0 0 72 72">
+                    <circle class="radial-bg" cx="36" cy="36" r="30"/>
+                    <circle class="radial-fill" cx="36" cy="36" r="30"
+                      stroke="url(#g2)" data-pct="78" data-r="30"
+                      style="stroke-dasharray:188.5;stroke-dashoffset:188.5"/>
+                    <text class="radial-text" x="36" y="36" font-size="12" font-weight="900" fill="var(--text-primary)">78%</text>
+                    <defs>
+                      <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ff6584"/>
+                        <stop offset="100%" stop-color="#ffd166"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="radial-label">📐 Matematika</div>
+                </div>
+                <!-- Bahasa -->
+                <div class="radial-item">
+                  <svg class="radial-svg" width="72" height="72" viewBox="0 0 72 72">
+                    <circle class="radial-bg" cx="36" cy="36" r="30"/>
+                    <circle class="radial-fill" cx="36" cy="36" r="30"
+                      stroke="url(#g3)" data-pct="87" data-r="30"
+                      style="stroke-dasharray:188.5;stroke-dashoffset:188.5"/>
+                    <text class="radial-text" x="36" y="36" font-size="12" font-weight="900" fill="var(--text-primary)">87%</text>
+                    <defs>
+                      <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#43e6c5"/>
+                        <stop offset="100%" stop-color="#6c63ff"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="radial-label">🗣️ Bahasa</div>
+                </div>
+                <!-- Teknologi -->
+                <div class="radial-item">
+                  <svg class="radial-svg" width="72" height="72" viewBox="0 0 72 72">
+                    <circle class="radial-bg" cx="36" cy="36" r="30"/>
+                    <circle class="radial-fill" cx="36" cy="36" r="30"
+                      stroke="url(#g4)" data-pct="55" data-r="30"
+                      style="stroke-dasharray:188.5;stroke-dashoffset:188.5"/>
+                    <text class="radial-text" x="36" y="36" font-size="12" font-weight="900" fill="var(--text-primary)">55%</text>
+                    <defs>
+                      <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ffd166"/>
+                        <stop offset="100%" stop-color="#ff6584"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="radial-label">💻 Teknologi</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ═══ KARTU TAMBAHAN: Target Belajar Minggu Ini ═══ -->
+            <div class="dash-chart-card dash-reveal dash-reveal-d3 reveal reveal-delay-2">
+              <div class="dash-card-header">
+                <div class="dash-card-title">🎯 Target Belajar Minggu Ini</div>
+                <span class="dash-card-badge">7 Hari</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:1rem;">
+                <!-- Target 1 -->
+                <div style="display:flex;align-items:center;gap:1rem;">
+                  <div style="width:42px;height:42px;border-radius:12px;background:rgba(108,99,255,0.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">📐</div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                      <span style="font-size:0.82rem;font-weight:700;color:var(--text-primary);">Selesaikan 3 modul Matematika</span>
+                      <span style="font-size:0.72rem;font-weight:800;color:var(--primary);">2/3</span>
+                    </div>
+                    <div style="height:7px;background:rgba(108,99,255,0.1);border-radius:99px;overflow:hidden;">
+                      <div style="height:100%;width:66%;background:linear-gradient(90deg,#6c63ff,#8b85ff);border-radius:99px;transition:width 1.2s ease;"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Target 2 -->
+                <div style="display:flex;align-items:center;gap:1rem;">
+                  <div style="width:42px;height:42px;border-radius:12px;background:rgba(67,230,197,0.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">📝</div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                      <span style="font-size:0.82rem;font-weight:700;color:var(--text-primary);">Kerjakan 10 soal Quiz Kimia</span>
+                      <span style="font-size:0.72rem;font-weight:800;color:#43e6c5;">10/10</span>
+                    </div>
+                    <div style="height:7px;background:rgba(67,230,197,0.1);border-radius:99px;overflow:hidden;">
+                      <div style="height:100%;width:100%;background:linear-gradient(90deg,#43e6c5,#6ef9e1);border-radius:99px;"></div>
+                    </div>
+                  </div>
+                  <span style="font-size:0.62rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:99px;background:rgba(67,230,197,0.15);border:1px solid rgba(67,230,197,0.35);color:#43e6c5;flex-shrink:0;">✓ DONE</span>
+                </div>
+                <!-- Target 3 -->
+                <div style="display:flex;align-items:center;gap:1rem;">
+                  <div style="width:42px;height:42px;border-radius:12px;background:rgba(255,101,132,0.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">🗣️</div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                      <span style="font-size:0.82rem;font-weight:700;color:var(--text-primary);">Latihan Speaking B. Inggris</span>
+                      <span style="font-size:0.72rem;font-weight:800;color:#ff6584;">1/5</span>
+                    </div>
+                    <div style="height:7px;background:rgba(255,101,132,0.1);border-radius:99px;overflow:hidden;">
+                      <div style="height:100%;width:20%;background:linear-gradient(90deg,#ff6584,#ffa0b4);border-radius:99px;"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Target 4 -->
+                <div style="display:flex;align-items:center;gap:1rem;">
+                  <div style="width:42px;height:42px;border-radius:12px;background:rgba(255,209,102,0.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">⏱️</div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                      <span style="font-size:0.82rem;font-weight:700;color:var(--text-primary);">Belajar minimal 60 mnt/hari</span>
+                      <span style="font-size:0.72rem;font-weight:800;color:#ffd166;">5/7</span>
+                    </div>
+                    <div style="height:7px;background:rgba(255,209,102,0.1);border-radius:99px;overflow:hidden;">
+                      <div style="height:100%;width:71%;background:linear-gradient(90deg,#ffd166,#ffe599);border-radius:99px;"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Target 5 -->
+                <div style="display:flex;align-items:center;gap:1rem;">
+                  <div style="width:42px;height:42px;border-radius:12px;background:rgba(108,99,255,0.12);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;">🧠</div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+                      <span style="font-size:0.82rem;font-weight:700;color:var(--text-primary);">Review catatan & ringkasan</span>
+                      <span style="font-size:0.72rem;font-weight:800;color:var(--primary);">3/7</span>
+                    </div>
+                    <div style="height:7px;background:rgba(108,99,255,0.1);border-radius:99px;overflow:hidden;">
+                      <div style="height:100%;width:43%;background:linear-gradient(90deg,#6c63ff,#a78bfa);border-radius:99px;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div><!-- /dash-row row-1 -->
+
+            <!-- Row 2: Leaderboard + Progress Mapel Prioritas -->
+            <div class="dash-row">
+            <div class="dash-leaderboard dash-reveal dash-reveal-d3 reveal reveal-delay-2">
+              <div class="dash-card-header">
+                <div class="dash-card-title">🏆 Leaderboard</div>
+                <span class="dash-card-badge">Top 5</span>
+              </div>
+              <div class="leaderboard-list">
+                <div class="lb-item">
+                  <div class="lb-rank lb-rank-1">🥇</div>
+                  <div class="lb-avatar">RF</div>
+                  <div class="lb-info">
+                    <div class="lb-name">Rizky F</div>
+                    <div class="lb-score-bar-wrap">
+                      <div class="lb-score-bar" data-width="100%" style="width:0"></div>
+                    </div>
+                  </div>
+                  <div class="lb-pts">4.820 XP</div>
+                </div>
+                <div class="lb-item">
+                  <div class="lb-rank lb-rank-2">🥈</div>
+                  <div class="lb-avatar">SP</div>
+                  <div class="lb-info">
+                    <div class="lb-name">Sari P</div>
+                    <div class="lb-score-bar-wrap">
+                      <div class="lb-score-bar" data-width="88%" style="width:0"></div>
+                    </div>
+                  </div>
+                  <div class="lb-pts">4.240 XP</div>
+                </div>
+                <div class="lb-item">
+                  <div class="lb-rank lb-rank-3">🥉</div>
+                  <div class="lb-avatar">AW</div>
+                  <div class="lb-info">
+                    <div class="lb-name">Azkia W</div>
+                    <div class="lb-score-bar-wrap">
+                      <div class="lb-score-bar" data-width="75%" style="width:0"></div>
+                    </div>
+                  </div>
+                  <div class="lb-pts">3.610 XP</div>
+                </div>
+                <div class="lb-item lb-me">
+                  <div class="lb-rank lb-rank-other">4</div>
+                  <div class="lb-avatar">⭐</div>
+                  <div class="lb-info">
+                    <div class="lb-name">Kamu 😊</div>
+                    <div class="lb-score-bar-wrap">
+                      <div class="lb-score-bar" data-width="59%" style="width:0"></div>
+                    </div>
+                  </div>
+                  <div class="lb-pts">2.840 XP</div>
+                </div>
+                <div class="lb-item">
+                  <div class="lb-rank lb-rank-other">5</div>
+                  <div class="lb-avatar">FA</div>
+                  <div class="lb-info">
+                    <div class="lb-name">Fajar A</div>
+                    <div class="lb-score-bar-wrap">
+                      <div class="lb-score-bar" data-width="52%" style="width:0"></div>
+                    </div>
+                  </div>
+                  <div class="lb-pts">2.490 XP</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Progress Mapel Prioritas – now beside Leaderboard -->
+            <div class="dash-subject-progress dash-reveal dash-reveal-d3 reveal reveal-delay-3">
+              <div class="dash-card-header">
+                <div class="dash-card-title">📌 Progress Mapel Prioritas</div>
+                <span class="dash-card-badge">7 Mapel</span>
+              </div>
+              <div class="subj-list">
+                <div class="subj-row">
+                  <span class="subj-icon">📐</span>
+                  <div class="subj-info">
+                    <div class="subj-name">Matematika</div>
+                    <div class="subj-bar-bg">
+                      <div class="subj-bar-fill" data-width="78%" style="width:0; background:linear-gradient(90deg,#6c63ff,#8b85ff)"></div>
+                    </div>
+                  </div>
+                  <div class="subj-pct">78%</div>
+                </div>
+                <div class="subj-row">
+                  <span class="subj-icon">🧪</span>
+                  <div class="subj-info">
+                    <div class="subj-name">Kimia</div>
+                    <div class="subj-bar-bg">
+                      <div class="subj-bar-fill" data-width="90%" style="width:0; background:linear-gradient(90deg,#43e6c5,#6c63ff)"></div>
+                    </div>
+                  </div>
+                  <div class="subj-pct">90%</div>
+                </div>
+                <div class="subj-row">
+                  <span class="subj-icon">🌍</span>
+                  <div class="subj-info">
+                    <div class="subj-name">B. Inggris</div>
+                    <div class="subj-bar-bg">
+                      <div class="subj-bar-fill" data-width="85%" style="width:0; background:linear-gradient(90deg,#ff6584,#ffd166)"></div>
+                    </div>
+                  </div>
+                  <div class="subj-pct">85%</div>
+                </div>
+                <div class="subj-row">
+                  <span class="subj-icon">💻</span>
+                  <div class="subj-info">
+                    <div class="subj-name">Informatika</div>
+                    <div class="subj-bar-bg">
+                      <div class="subj-bar-fill" data-width="55%" style="width:0; background:linear-gradient(90deg,#ffd166,#43e6c5)"></div>
+                    </div>
+                  </div>
+                  <div class="subj-pct">55%</div>
+                </div>
+                <div class="subj-row">
+                  <span class="subj-icon">📖</span>
+                  <div class="subj-info">
+                    <div class="subj-name">Sejarah</div>
+                    <div class="subj-bar-bg">
+                      <div class="subj-bar-fill" data-width="63%" style="width:0; background:linear-gradient(90deg,#a78bfa,#6c63ff)"></div>
+                    </div>
+                  </div>
+                  <div class="subj-pct">63%</div>
+                </div>
+                <div class="subj-row">
+                  <span class="subj-icon">🌱</span>
+                  <div class="subj-info">
+                    <div class="subj-name">Biologi</div>
+                    <div class="subj-bar-bg">
+                      <div class="subj-bar-fill" data-width="71%" style="width:0; background:linear-gradient(90deg,#43e6c5,#6ef9e1)"></div>
+                    </div>
+                  </div>
+                  <div class="subj-pct">71%</div>
+                </div>
+                <div class="subj-row">
+                  <span class="subj-icon">⚛️</span>
+                  <div class="subj-info">
+                    <div class="subj-name">Fisika</div>
+                    <div class="subj-bar-bg">
+                      <div class="subj-bar-fill" data-width="47%" style="width:0; background:linear-gradient(90deg,#ff6584,#ffa0b4)"></div>
+                    </div>
+                  </div>
+                  <div class="subj-pct">47%</div>
+                </div>
+              </div>
+            </div>
+            </div><!-- /dash-row row-2 -->
+
+            <!-- Row 3: Kalender + Pencapaian -->
+            <div class="dash-row">
+            <!-- Heatmap Kalender -->
+            <div class="heatmap-card dash-reveal dash-reveal-d4 reveal reveal-delay-1">
+              <div class="dash-card-header">
+                <div class="dash-card-title">📅 Kalender Aktivitas Belajar</div>
+                <span class="dash-card-badge">84 Hari Terakhir</span>
+              </div>
+              <div class="heatmap-grid" id="heatmapGrid"></div>
+              <div class="heatmap-legend">
+                <span class="heatmap-legend-label">Kurang</span>
+                <div class="heatmap-legend-cell" style="background:rgba(67,230,197,0.07)"></div>
+                <div class="heatmap-legend-cell heatmap-cell h1"></div>
+                <div class="heatmap-legend-cell heatmap-cell h2"></div>
+                <div class="heatmap-legend-cell heatmap-cell h3"></div>
+                <div class="heatmap-legend-cell heatmap-cell h4"></div>
+                <div class="heatmap-legend-cell heatmap-cell h5"></div>
+                <span class="heatmap-legend-label">Banyak</span>
+              </div>
+            </div>
+
+            <!-- Achievements -->
+            <div class="achievements-card dash-reveal dash-reveal-d5 reveal reveal-delay-2">
+              <div class="dash-card-header">
+                <div class="dash-card-title">🏅 Pencapaian Terbaru</div>
+                <span class="dash-card-badge">+3 Baru</span>
+              </div>
+              <div class="achievements-list">
+                <div class="ach-item">
+                  <div class="ach-icon">🔥</div>
+                  <div class="ach-info">
+                    <div class="ach-name">Streak Master</div>
+                    <div class="ach-desc">Belajar 7 hari berturut-turut</div>
+                  </div>
+                  <span class="ach-badge ach-badge-new">BARU</span>
+                </div>
+                <div class="ach-item">
+                  <div class="ach-icon">⚡</div>
+                  <div class="ach-info">
+                    <div class="ach-name">Kilat Kimia</div>
+                    <div class="ach-desc">Kimia mencapai 90%</div>
+                  </div>
+                  <span class="ach-badge ach-badge-new">BARU</span>
+                </div>
+                <div class="ach-item">
+                  <div class="ach-icon">🎯</div>
+                  <div class="ach-info">
+                    <div class="ach-name">Quiz Sempurna</div>
+                    <div class="ach-desc">Nilai 100 pada 5 quiz berturut</div>
+                  </div>
+                  <span class="ach-badge ach-badge-new">BARU</span>
+                </div>
+                <div class="ach-item">
+                  <div class="ach-icon">🚀</div>
+                  <div class="ach-info">
+                    <div class="ach-name">Explorer Level 12</div>
+                    <div class="ach-desc">Naik ke level berikutnya</div>
+                  </div>
+                  <span class="ach-badge ach-badge-done">SELESAI</span>
+                </div>
+                <div class="ach-item">
+                  <div class="ach-icon">📖</div>
+                  <div class="ach-info">
+                    <div class="ach-name">100 Modul Selesai</div>
+                    <div class="ach-desc">Milestone 100 modul tercapai</div>
+                  </div>
+                  <span class="ach-badge ach-badge-done">SELESAI</span>
+                </div>
+              </div>
+            </div>
+            </div><!-- /dash-row row-3 -->
+          </div><!-- /dash-main-grid -->
+
+          <!-- ═══ CTA TOMBOL – Dashboard & Mobile App Simulation ═══ -->
+          <div class="dash-sim-cta reveal" style="text-align:center;margin-top:3.5rem;padding:3rem 1.5rem;position:relative;">
+            <!-- Decorative background glow -->
+            <div style="position:absolute;inset:0;border-radius:32px;background:linear-gradient(135deg,rgba(108,99,255,0.08),rgba(67,230,197,0.06),rgba(255,101,132,0.05));border:1px solid rgba(108,99,255,0.15);pointer-events:none;"></div>
+            <div style="position:relative;z-index:1;">
+              <div class="section-badge" style="margin-bottom:1rem;">📱 App Preview</div>
+              <h3 style="font-weight:900;font-size:clamp(1.5rem,3.5vw,2.2rem);letter-spacing:-1px;margin-bottom:0.8rem;color:var(--text-primary);line-height:1.2;">
+                Lihat Simulasi <span class="gradient-text">Dashboard & Mobile App</span>
+              </h3>
+              <p style="font-size:clamp(0.9rem,2vw,1.05rem);color:var(--text-secondary);max-width:520px;margin:0 auto 2rem;line-height:1.7;">
+                Jelajahi tampilan interaktif lengkap aplikasi LearnUp dari simulasi layar mobile hingga fitur eksklusif mobile app yang menakjubkan.
+              </p>
+              <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;align-items:center;">
+                <a href="#sim-page" id="goToSimBtn" class="btn btn-primary" style="font-size:1rem;padding:1rem 2.2rem;gap:0.6rem;" onclick="navigateToSimulation()">
+                  <i class="fas fa-mobile-alt"></i>
+                  Buka Dashboard & App Simulation
+                  <i class="fas fa-arrow-right" style="font-size:0.85rem;"></i>
+                </a>
+
+              </div>
+
+            </div>
+          </div>
+          <!-- /CTA Simulation -->
+
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg viewBox="0 0 1200 50" preserveAspectRatio="none" style="height: 35px">
+          <path d="M0,35 C300,0 900,50 1200,15 L1200,50 L0,50 Z" fill="rgba(255,101,132,.05)" />
+        </svg>
+      </div>
+      <section id="fitur" class="section">
+        <div class="container">
+          <div class="text-center reveal">
+            <div class="section-badge">⚡ Fitur Unggulan</div>
+            <h2 class="section-title">
+              Semua yang Kamu <span class="gradient-text">Butuhkan</span>
+            </h2>
+            <p class="section-subtitle">
+              Fitur canggih yang dirancang untuk memaksimalkan hasil belajarmu
+              dengan cara yang menyenangkan.
+            </p>
+          </div>
+          <div class="fitur-big-grid">
+            <!-- Video Pendek -->
+            <div class="glass-card fitur-big-card reveal reveal-delay-1">
+              <div
+                class="fitur-preview"
+                style="background: rgba(108, 99, 255, 0.07)"
+              >
+                <div class="fitur-preview-video" style="width: 100%">
+                  <div class="fvideo-row">
+                    <div class="fvideo-play"><i class="fas fa-play"></i></div>
+                    <div style="flex: 1">
+                      <div
+                        class="fvideo-bar"
+                        style="
+                          background: rgba(108, 99, 255, 0.5);
+                          width: 100%;
+                          height: 4px;
+                          border-radius: 3px;
+                          margin-bottom: 0.2rem;
+                        "
+                      ></div>
+                      <div
+                        class="fvideo-bar"
+                        style="
+                          background: rgba(108, 99, 255, 0.25);
+                          width: 60%;
+                          height: 4px;
+                          border-radius: 3px;
+                        "
+                      ></div>
+                    </div>
+                  </div>
+                  <div
+                    style="
+                      height: 4px;
+                      background: rgba(108, 99, 255, 0.15);
+                      border-radius: 99px;
+                      margin-top: 0.6rem;
+                      overflow: hidden;
+                    "
+                  >
+                    <div
+                      style="
+                        width: 45%;
+                        height: 100%;
+                        background: var(--primary);
+                        border-radius: 99px;
+                        animation: progressPulse 3s ease-in-out infinite;
+                      "
+                    ></div>
+                  </div>
+                  <div
+                    style="
+                      font-size: 0.58rem;
+                      color: var(--text-muted);
+                      margin-top: 0.7rem;
+                      font-weight: 500;
+                    "
+                  >
+                    📹 Sedang diputar... 2:15 / 5:30
+                  </div>
+                </div>
+              </div>
+              <div class="fitur-big-title">Video Pendek</div>
+              <div class="fitur-big-desc">
+                Materi disampaikan dalam video berdurasi singkat berkualitas tinggi
+                dengan fitur tanya jawab secara real-time dan subtitle.
+              </div>
+              <div class="fitur-sub-badges">
+                <span class="fitur-sub-badge">📚 Semua Mapel</span>
+                <span class="fitur-sub-badge">🎬 HD Quality</span>
+              </div>
+            </div>
+            <!-- Quiz Interaktif -->
+            <div class="glass-card fitur-big-card reveal reveal-delay-2">
+              <div
+                class="fitur-preview"
+                style="background: rgba(67, 230, 197, 0.07)"
+              >
+                <div class="quiz-preview">
+                  <div class="quiz-q">Berapakah nilai x dari 3x + 6 = 15?</div>
+                  <div class="quiz-opt">A. x = 2</div>
+                  <div class="quiz-opt correct">B. x = 3 ✓</div>
+                  <div class="quiz-opt">C. x = 4</div>
+                  <div class="quiz-opt">D. x = 5</div>
+                </div>
+              </div>
+              <div class="fitur-big-title">Quiz Interaktif</div>
+              <div class="fitur-big-desc">
+                Ribuan quiz dan latihan soal dengan pembahasan lengkap dari mentor.
+                Cocok untuk kamu yang kesulitan memahami latihan soal.
+              </div>
+              <div class="fitur-sub-badges">
+                <span class="fitur-sub-badge">🎯 Adaptif</span>
+                <span class="fitur-sub-badge">📊 Analitik</span>
+              </div>
+            </div>
+            <!-- Progress Tracker -->
+            <div class="glass-card fitur-big-card reveal reveal-delay-3">
+              <div
+                class="fitur-preview"
+                style="background: rgba(255, 101, 132, 0.07)"
+              >
+                <div class="progress-preview">
+                  <div
+                    style="
+                      font-size: 0.65rem;
+                      font-weight: 600;
+                      color: var(--text-muted);
+                      margin-bottom: 0.3rem;
+                    "
+                  >
+                    Aktivitas Minggu Ini
+                  </div>
+                  <div class="prog-bars">
+                    <div class="prog-bar-item" style="height: 35%"></div>
+                    <div class="prog-bar-item" style="height: 55%"></div>
+                    <div class="prog-bar-item" style="height: 40%"></div>
+                    <div class="prog-bar-item active" style="height: 75%"></div>
+                    <div class="prog-bar-item" style="height: 60%"></div>
+                    <div class="prog-bar-item active" style="height: 90%"></div>
+                    <div class="prog-bar-item" style="height: 50%"></div>
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      font-size: 0.55rem;
+                      color: var(--text-muted);
+                    "
+                  >
+                    <span>Sen</span><span>Sel</span><span>Rab</span
+                    ><span>Kam</span><span>Jum</span><span>Sab</span
+                    ><span>Min</span>
+                  </div>
+                </div>
+              </div>
+              <div class="fitur-big-title">Progress Tracker</div>
+              <div class="fitur-big-desc">
+                Dashboard real-time yang menampilkan skor, waktu belajar, dan
+                rekomendasi topik berikutnya dengan hasil yang akurat.
+              </div>
+              <div class="fitur-sub-badges">
+                <span class="fitur-sub-badge">📈 Real-time</span>
+                <span class="fitur-sub-badge">🏆 Gamifikasi</span>
+              </div>
+            </div>
+            <!-- Study Reminder -->
+            <div class="glass-card fitur-big-card reveal reveal-delay-4">
+              <div
+                class="fitur-preview"
+                style="background: rgba(255, 209, 102, 0.07)"
+              >
+                <div class="reminder-preview">
+                  <div class="rem-item">
+                    <div class="rem-dot" style="background: #6c63ff"></div>
+                    📅 07:30 - Matematika Bab 5
+                  </div>
+                  <div class="rem-item">
+                    <div class="rem-dot" style="background: #43e6c5"></div>
+                    📝 13:00 - Quiz Fisika
+                  </div>
+                  <div class="rem-item">
+                    <div class="rem-dot" style="background: #ff6584"></div>
+                    🔔 20:00 - Review Sejarah
+                  </div>
+                  <div
+                    class="rem-item"
+                    style="
+                      background: rgba(255, 209, 102, 0.1);
+                      border-color: rgba(255, 209, 102, 0.3);
+                    "
+                  >
+                    <div class="rem-dot" style="background: #ffd166"></div>
+                    ⭐ Streak hari ini aktif!
+                  </div>
+                </div>
+              </div>
+              <div class="fitur-big-title">Study Reminder</div>
+              <div class="fitur-big-desc">
+                Pengingat belajar yang cerdas sesuai dengan jadwal dan
+                kebiasaanmu agar tidak ada sesi belajar yang terlewatkan.
+              </div>
+              <div class="fitur-sub-badges">
+                <span class="fitur-sub-badge">🔔 Smart</span>
+                <span class="fitur-sub-badge">⚡ Otomatis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg
+          viewBox="0 0 1200 50"
+          preserveAspectRatio="none"
+          style="height: 35px"
+        >
+          <path
+            d="M0,15 C400,50 800,0 1200,40 L1200,50 L0,50 Z"
+            fill="rgba(108,99,255,.05)"
+          />
+        </svg>
+      </div>
+
+      <!-- ============================================================ CARA KERJA ============================================================ -->
+      <section
+        id="cara-kerja"
+        class="section"
+        style="background: rgba(67, 230, 197, 0.03)"
+      >
+        <div class="container">
+          <div class="text-center reveal">
+            <div class="section-badge">🗺️ User Journey</div>
+            <h2 class="section-title">
+              Cara Kerja <span class="gradient-text">LearnUp</span>
+            </h2>
+            <p class="section-subtitle">
+              Enam langkah sederhana dirancang  untuk meraih prestasi
+              terbaikmu bersama LearnUp.
+            </p>
+          </div>
+          <div class="carakerja-grid">
+            <div class="glass-card step-card reveal reveal-delay-1">
+              <div class="step-number">1</div>
+              <span class="step-emoji">📋</span>
+              <h3 class="step-title">Pilih Materi</h3>
+              <p class="step-desc">
+                Pilih mata pelajaran dan topik yang ingin kamu pelajari dari
+                ratusan materi yang tersedia secara lengkap.
+              </p>
+            </div>
+            <div class="glass-card step-card reveal reveal-delay-2">
+              <div class="step-number">2</div>
+              <span class="step-emoji">🎬</span>
+              <h3 class="step-title">Tonton Video</h3>
+              <p class="step-desc">
+                Saksikan video singkat berkualitas tinggi yang menjelaskan
+                konsep dan cara yang mudah dipahami.
+              </p>
+            </div>
+            <div class="glass-card step-card reveal reveal-delay-3">
+              <div class="step-number">3</div>
+              <span class="step-emoji">📝</span>
+              <h3 class="step-title">Kerjakan Quiz</h3>
+              <p class="step-desc">
+                Uji pemahamanmu dengan quiz interaktif yang adaptif.
+                Langsung mendapatkan pembahasan jika salah.
+              </p>
+            </div>
+            <div class="glass-card step-card reveal reveal-delay-4">
+              <div class="step-number">4</div>
+              <span class="step-emoji">📊</span>
+              <h3 class="step-title">Lihat Progress</h3>
+              <p class="step-desc">
+                Pantau kemajuan belajarmu di dashboard. Lihat mana yang sudah
+                dikuasai dan yang perlu dipelajari lagi.
+              </p>
+            </div>
+            <div class="glass-card step-card reveal reveal-delay-5">
+              <div class="step-number">5</div>
+              <span class="step-emoji">🔔</span>
+              <h3 class="step-title">Terima Reminder</h3>
+              <p class="step-desc">
+                Dapatkan pengingat belajar yang cerdas agar kamu konsisten setiap
+                hari tanpa harus mengatur sendiri.
+              </p>
+            </div>
+            <div class="glass-card step-card reveal reveal-delay-6">
+              <div class="step-number">6</div>
+              <span class="step-emoji">🏆</span>
+              <h3 class="step-title">Terus Konsisten</h3>
+              <p class="step-desc">
+                Bangun kebiasaan belajar yang kuat. Raih badge, sertifikat, dan
+                capai leaderboard setiap harinya!
+              </p>
+            </div>
+          </div>
+
+          <!-- Habit Loop -->
+          <div class="habit-loop reveal">
+            <div class="habit-title">
+              Membentuk <span class="gradient-text">Habit Loop</span> dalam Belajar
+            </div>
+            <div class="habit-grid">
+              <div class="habit-box">
+                <span class="habit-box-icon">🔔</span>
+                <div class="habit-box-label">Cue</div>
+                <div class="habit-box-desc">
+                  Notifikasi &amp; pengingat harian yang memicu kebiasaan belajar
+                  secara konsisten.
+                </div>
+              </div>
+              <div class="habit-arrow">→</div>
+              <div class="habit-box">
+                <span class="habit-box-icon">📚</span>
+                <div class="habit-box-label">Routine</div>
+                <div class="habit-box-desc">
+                  Rutinitas belajar melalui video, quiz, dan materi interaktif yang
+                  menyenangkan.
+                </div>
+              </div>
+              <div class="habit-arrow">→</div>
+              <div class="habit-box">
+                <span class="habit-box-icon">🏅</span>
+                <div class="habit-box-label">Reward</div>
+                <div class="habit-box-desc">
+                  Badge, poin, sertifikat, dan peningkatan nilai nyata sebagai
+                  apresiasi usahamu.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg
+          viewBox="0 0 1200 50"
+          preserveAspectRatio="none"
+          style="height: 35px"
+        >
+          <path
+            d="M0,40 C300,0 900,50 1200,20 L1200,50 L0,50 Z"
+            fill="rgba(255,101,132,.05)"
+          />
+        </svg>
+      </div>
+
+      <!-- ============================================================ MENGAPA LEARNUP BERBEDA ============================================================ -->
+      <section id="kenapa" class="section">
+        <div class="container">
+          <div class="text-center reveal">
+            <div class="section-badge">💎 Keunggulan Kami</div>
+            <h2 class="section-title">
+              Mengapa LearnUp <span class="gradient-text">Berbeda</span>?
+            </h2>
+            <p class="section-subtitle">
+              Empat alasan utama mengapa ribuan pelajar memilih LearnUp dibanding
+              platform lainnya.
+            </p>
+          </div>
+          <div class="kenapa-grid">
+            <div class="glass-card kenapa-card reveal reveal-delay-1">
+              <div
+                class="kenapa-icon"
+                style="background: rgba(108, 99, 255, 0.12)"
+              >
+                ⚡
+              </div>
+              <h3 class="kenapa-title">Efisien</h3>
+              <p class="kenapa-desc">
+                Belajar 3x lebih cepat menggunakan metode micro-learning dengan
+                menyesuaikan konten sesuai kemampuanmu secara real-time.
+              </p>
+              <span class="vs-badge">vs Buku Teks Tebal</span>
+            </div>
+            <div class="glass-card kenapa-card reveal reveal-delay-2">
+              <div
+                class="kenapa-icon"
+                style="background: rgba(67, 230, 197, 0.12)"
+              >
+                🎯
+              </div>
+              <h3 class="kenapa-title">Personal</h3>
+              <p class="kenapa-desc">
+                Setiap pengguna mendapat alur belajar yang unik. AI kami menganalisis
+                kelemahan dan kekuatan untuk pengalaman belajar yang dipersonalisasi.
+              </p>
+              <span
+                class="vs-badge"
+                style="
+                  background: rgba(67, 230, 197, 0.1);
+                  border-color: rgba(67, 230, 197, 0.3);
+                  color: #43e6c5;
+                "
+                >vs Kelas Massal</span
+              >
+            </div>
+            <div class="glass-card kenapa-card reveal reveal-delay-3">
+              <div
+                class="kenapa-icon"
+                style="background: rgba(255, 101, 132, 0.12)"
+              >
+                🎮
+              </div>
+              <h3 class="kenapa-title">Interaktif</h3>
+              <p class="kenapa-desc">
+                Gamifikasi penuh dengan poin, badge, dan leaderboard membuat
+                belajar terasa seperti bermain sehingga kamu selalu termotivasi.
+              </p>
+              <span class="vs-badge">vs Metode Pasif</span>
+            </div>
+            <div class="glass-card kenapa-card reveal reveal-delay-4">
+              <div
+                class="kenapa-icon"
+                style="background: rgba(255, 209, 102, 0.12)"
+              >
+                🧠
+              </div>
+              <h3 class="kenapa-title">Adaptif</h3>
+              <p class="kenapa-desc">
+                Sistem kami terus belajar dari aktivitasmu. Semakin sering
+                digunakan, semakin cerdas rekomendasi materi yang akan diberikan
+                kepadamu.
+              </p>
+              <span
+                class="vs-badge"
+                style="
+                  background: rgba(255, 209, 102, 0.1);
+                  border-color: rgba(255, 209, 102, 0.3);
+                  color: #cca000;
+                "
+                >vs Kurikulum Kaku</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg
+          viewBox="0 0 1200 50"
+          preserveAspectRatio="none"
+          style="height: 35px"
+        >
+          <path
+            d="M0,20 C400,50 800,0 1200,30 L1200,50 L0,50 Z"
+            fill="rgba(108,99,255,.05)"
+          />
+        </svg>
+      </div>
+
+      <!-- ============================================================ HARGA ============================================================ -->
+      <section
+        id="harga"
+        class="section"
+        style="background: rgba(108, 99, 255, 0.03)"
+      >
+        <div class="container">
+          <div class="text-center reveal">
+            <div class="section-badge">🎁 Pilih Paket</div>
+            <h2 class="section-title">
+              Harga yang <span class="gradient-text">Terjangkau</span>
+            </h2>
+            <p class="section-subtitle">
+              Mulai belajar gratis selamanya atau upgrade ke Premium maupun Pro untuk
+              pengalaman tanpa batas.
+            </p>
+          </div>
+          <div class="countdown-wrapper reveal reveal-delay-1">
+            <span class="countdown-label">⏳ Promo berakhir dalam:</span>
+            <div class="countdown-items">
+              <div class="countdown-item">
+                <div class="countdown-num" id="cdDays">00</div>
+                <div class="countdown-unit">Hari</div>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-item">
+                <div class="countdown-num" id="cdHours">00</div>
+                <div class="countdown-unit">Jam</div>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-item">
+                <div class="countdown-num" id="cdMins">00</div>
+                <div class="countdown-unit">Menit</div>
+              </div>
+              <span class="countdown-sep">:</span>
+              <div class="countdown-item">
+                <div class="countdown-num" id="cdSecs">00</div>
+                <div class="countdown-unit">Detik</div>
+              </div>
+            </div>
+          </div>
+          <div class="pricing-grid">
+            <!-- Basic -->
+            <div class="glass-card pricing-card reveal reveal-delay-1">
+              <div class="pricing-plan">Basic</div>
+              <div class="pricing-price">Gratis</div>
+              <div class="pricing-period">
+                Selamanya · Tidak perlu kartu kredit
+              </div>
+              <ul class="pricing-features">
+                <li><i class="fas fa-check-circle"></i>Akses 50 modul gratis</li>
+                <li>
+                  <i class="fas fa-check-circle"></i>5 sesi tanya jawab/bulan
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Dashboard progres dasar
+                </li>
+                <li><i class="fas fa-check-circle"></i>Forum komunitas</li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Aplikasi mobile &amp; web
+                </li>
+                <li style="opacity: 0.45">
+                  <i class="fas fa-times-circle"></i>Mentor 1-on-1
+                </li>
+                <li style="opacity: 0.45">
+                  <i class="fas fa-times-circle"></i>Sertifikat digital
+                </li>
+                <li style="opacity: 0.45">
+                  <i class="fas fa-times-circle"></i>AI Tutor personal
+                </li>
+              </ul>
+              <a
+                href="#"
+                class="btn btn-outline"
+                style="width: 100%; justify-content: center"
+                ><i class="fas fa-star"></i>Mulai Gratis</a
+              >
+            </div>
+            <!-- Premium -->
+            <div class="glass-card pricing-card popular reveal reveal-delay-2">
+              <div class="popular-badge">⭐ PALING POPULER</div>
+              <div class="pricing-plan">Premium</div>
+              <div class="pricing-price">Rp29.000<span>/bulan</span></div>
+              <div class="pricing-period">
+                Harga normal Rp49.000/bln · Hemat 41%
+              </div>
+              <ul class="pricing-features">
+                <li>
+                  <i class="fas fa-check-circle"></i>Akses 500+ modul lengkap
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Mentor 1-on-1 unlimited
+                </li>
+                <li><i class="fas fa-check-circle"></i>Live class eksklusif</li>
+                <li><i class="fas fa-check-circle"></i>AI Tutor personal 24/7</li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Bank soal 10.000+ &amp; try
+                  out
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Sertifikat digital
+                  terverifikasi
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Garansi uang kembali 30 hari
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Prioritas dukungan 24/7
+                </li>
+              </ul>
+              <a
+                href="#cta-final"
+                class="btn btn-primary"
+                style="width: 100%; justify-content: center"
+                ><i class="fas fa-rocket"></i>Daftar Sekarang</a
+              >
+              <p
+                style="
+                  font-size: 0.7rem;
+                  color: var(--text-muted);
+                  margin-top: 0.55rem;
+                  font-weight: 300;
+                "
+              >
+                *Batalkan kapan saja tanpa biaya
+              </p>
+            </div>
+            <!-- Pro -->
+            <div class="glass-card pricing-card reveal reveal-delay-3" style="border-color: #ffd166; box-shadow: 0 0 30px rgba(255, 209, 102, 0.25);">
+              <div class="popular-badge" style="background: linear-gradient(135deg, #ffd166, #ff9f43); animation: none;">🏆 TERLENGKAP</div>
+              <div class="pricing-plan" style="color: #ffd166;">Pro</div>
+              <div class="pricing-price">Rp69.000<span>/bulan</span></div>
+              <div class="pricing-period">
+                Harga normal Rp99.000/bln · Hemat 30%
+              </div>
+              <ul class="pricing-features">
+                <li>
+                  <i class="fas fa-check-circle"></i><strong>Semua fitur Premium</strong>
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Simulasi ujian UTBK lengkap
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Laporan analitik mendalam
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Rencana belajar personal AI
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Konsultasi mentor prioritas
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Akses materi eksklusif Pro
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Prediksi nilai &amp; passing grade
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i>Sertifikat premium + portofolio
+                </li>
+              </ul>
+              <a
+                href="#cta-final"
+                class="btn btn-primary"
+                style="width: 100%; justify-content: center; background: linear-gradient(135deg, #ffd166, #ff9f43); border: none;"
+                ><i class="fas fa-crown"></i>Pilih Pro</a
+              >
+              <p
+                style="
+                  font-size: 0.7rem;
+                  color: var(--text-muted);
+                  margin-top: 0.55rem;
+                  font-weight: 300;
+                "
+              >
+                *Batalkan kapan saja tanpa biaya
+              </p>
+            </div>
+          </div>
+          <div class="pricing-guarantee reveal">
+            <i class="fas fa-lock" style="color: var(--accent)"></i>Pembayaran
+            aman
+            <span style="opacity: 0.4">·</span>
+            <i class="fas fa-shield-alt" style="color: var(--accent)"></i>Garansi
+            uang kembali 30 hari
+            <span style="opacity: 0.4">·</span>
+            <i class="fas fa-times-circle" style="color: var(--accent)"></i>Tidak
+            ada spam
+          </div>
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg
+          viewBox="0 0 1200 50"
+          preserveAspectRatio="none"
+          style="height: 35px"
+        >
+          <path
+            d="M0,30 C300,0 900,50 1200,25 L1200,50 L0,50 Z"
+            fill="rgba(67,230,197,.05)"
+          />
+        </svg>
+      </div>
+
+      <!-- ============================================================ TESTIMONI ============================================================ -->
+      <section
+        id="testimoni"
+        class="section"
+        style="background: rgba(255, 101, 132, 0.03)"
+      >
+        <div class="container">
+          <div class="text-center reveal">
+            <div class="section-badge">💬 Ulasan Pengguna</div>
+            <h2 class="section-title">
+              Apa Kata <span class="gradient-text">Mereka</span>?
+            </h2>
+            <p class="section-subtitle">
+              Lebih dari 50.000 pelajar telah merasakan manfaat nyata bersama
+              LearnUp. Inilah cerita mereka.
+            </p>
+          </div>
+          <div class="testi-grid">
+            <!-- T1 -->
+            <div class="glass-card testi-card reveal reveal-delay-1">
+              <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testi-text">
+                Dulu aku paling malas belajar Matematika, tapi sejak pakai LearnUp jadi kecanduan!
+                Video-nya singkat banget tapi langsung nyambung. Nilai ujian aku naik dari 65 ke 88 dalam sebulan!
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar">AR</div>
+                <div>
+                  <div class="testi-name">Aldi Rachman</div>
+                  <div class="testi-role">Siswa SMA · Semarang</div>
+                  <span class="testi-badge">Matematika</span>
+                </div>
+              </div>
+            </div>
+            <!-- T2 -->
+            <div class="glass-card testi-card reveal reveal-delay-2">
+              <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testi-text">
+                Fitur reminder-nya luar biasa! Aku jadi disiplin belajar setiap hari karena ada notifikasi yang tepat waktu.
+                Progress tracker-nya juga bikin semangat karena bisa lihat sendiri kemajuan kita.
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar">SP</div>
+                <div>
+                  <div class="testi-name">Sari Putri</div>
+                  <div class="testi-role">Mahasiswi · Yogyakarta</div>
+                  <span class="testi-badge">Kimia</span>
+                </div>
+              </div>
+            </div>
+            <!-- T3 -->
+            <div class="glass-card testi-card reveal reveal-delay-3">
+              <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testi-text">
+                Sebagai mahasiswa yang sambil kerja, LearnUp sangat membantu karena bisa belajar kapan saja.
+                Quiz-nya yang adaptif bikin aku fokus pada kelemahan tanpa buang-buang waktu.
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar">FA</div>
+                <div>
+                  <div class="testi-name">Fajar Ardian</div>
+                  <div class="testi-role">Mahasiswa · Bandung</div>
+                  <span class="testi-badge">Fisika</span>
+                </div>
+              </div>
+            </div>
+            <!-- T4 -->
+            <div class="glass-card testi-card reveal reveal-delay-4">
+              <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testi-text">
+                Aku rekomendasiin LearnUp ke semua teman di kelas. Materi Bahasa Inggrisnya
+                lengkap banget dan cara penyampaiannya seru. Sekarang aku lebih pede ngomong Inggris!
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar">RF</div>
+                <div>
+                  <div class="testi-name">Rizky Firmansyah</div>
+                  <div class="testi-role">Siswi SMA · Jakarta</div>
+                  <span class="testi-badge">B. Inggris</span>
+                </div>
+              </div>
+            </div>
+            <!-- T5 -->
+            <div class="glass-card testi-card reveal reveal-delay-5">
+              <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testi-text">
+                Belajar Sejarah jadi jauh lebih seru pakai LearnUp! Materi yang biasanya membosankan kini
+                terasa hidup dengan video animasi dan timeline interaktif. Nilai Sejarahku naik drastis dalam waktu singkat!
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar">DS</div>
+                <div>
+                  <div class="testi-name">Dimas Sandy</div>
+                  <div class="testi-role">Mahasiswa · Surabaya</div>
+                  <span class="testi-badge">Sejarah</span>
+                </div>
+              </div>
+            </div>
+            <!-- T6 -->
+            <div
+              class="glass-card testi-card reveal reveal-delay-6"
+            >
+              <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testi-text">
+                LearnUp benar-benar mengubah cara aku belajar. Dulu belajar itu menyiksa, sekarang jadi
+                kegiatan yang ditunggu-tunggu setiap hari. Terima kasih sudah hadir untuk pelajar Indonesia!
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar">AW</div>
+                <div>
+                  <div class="testi-name">Azkia Wulandari</div>
+                  <div class="testi-role">Siswi SMP · Medan</div>
+                  <span class="testi-badge">Semua Mapel</span>
+                </div>
+              </div>
+            </div>
+            <!-- T7 -->
+            <div class="glass-card testi-card reveal reveal-delay-1">
+              <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testi-text">
+                Dashboard progress-nya keren banget! Aku bisa lihat perkembangan belajar setiap hari
+                secara visual. Fitur leaderboard bikin aku termotivasi untuk terus belajar dan bersaing sehat
+                dengan teman-teman sekelas.
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar">NR</div>
+                <div>
+                  <div class="testi-name">Nadia Rahayu</div>
+                  <div class="testi-role">Siswi SMA · Depok</div>
+                  <span class="testi-badge">Biologi</span>
+                </div>
+              </div>
+            </div>
+            <!-- T8 -->
+            <div class="glass-card testi-card reveal reveal-delay-2">
+              <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testi-text">
+                Sebagai orang tua, aku sangat terbantu dengan laporan progress belajar anak. Setiap minggu
+                ada ringkasan yang jelas tentang apa yang sudah dipelajari. Anak saya jadi lebih mandiri
+                dan bertanggung jawab dalam belajar!
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar">BW</div>
+                <div>
+                  <div class="testi-name">Budi Waluyo</div>
+                  <div class="testi-role">Orang Tua Siswa · Bekasi</div>
+                  <span class="testi-badge">Semua Mapel</span>
+                </div>
+              </div>
+            </div>
+            <!-- T9 -->
+            <div class="glass-card testi-card reveal reveal-delay-3">
+              <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testi-text">
+                LearnUp adalah platform belajar paling lengkap yang pernah aku coba. Materi Informatika
+                dan coding-nya sangat up-to-date. Sekarang aku bisa membuat program sederhana sendiri
+                berkat panduan belajar yang terstruktur dari LearnUp!
+              </p>
+              <div class="testi-author">
+                <div class="testi-avatar">MP</div>
+                <div>
+                  <div class="testi-name">Muhammad Prayogi</div>
+                  <div class="testi-role">Mahasiswa Teknik · Malang</div>
+                  <span class="testi-badge">Informatika</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg
+          viewBox="0 0 1200 50"
+          preserveAspectRatio="none"
+          style="height: 35px"
+        >
+          <path
+            d="M0,10 C300,50 900,0 1200,35 L1200,50 L0,50 Z"
+            fill="rgba(108,99,255,.05)"
+          />
+        </svg>
+      </div>
+
+      <!-- ============================================================ TIM ============================================================ -->
+      <section
+        id="tim"
+        class="section"
+        style="background: rgba(108, 99, 255, 0.03)"
+      >
+        <div class="container">
+          <div class="text-center reveal">
+            <div class="section-badge">👥 Tim Kami</div>
+            <h2 class="section-title">
+              Orang-Orang di Balik <span class="gradient-text">LearnUp</span>
+            </h2>
+            <p class="section-subtitle">
+              Tim berdedikasi yang bersemangat membangun platform belajar terbaik
+              untuk generasi Indonesia.
+            </p>
+          </div>
+          <div class="tim-grid">
+            <!-- COO -->
+            <div class="glass-card tim-card tim-card-1 reveal reveal-delay-1">
+              <div class="tim-card-header">
+                <div class="tim-avatar">I</div>
+                <div class="tim-jabatan">Chief Operating Officer</div>
+              </div>
+              <div class="tim-card-body">
+                <div class="tim-name">Indra Islamudin Fata</div>
+                <p class="tim-desc">
+                  Fokus pada operasional bisnis, manajemen tim, dan alur
+                  kerja harian untuk memastikan seluruh proses berjalan efektif.
+                </p>
+              </div>
+            </div>
+            <!-- CFO -->
+            <div class="glass-card tim-card tim-card-2 reveal reveal-delay-2">
+              <div class="tim-card-header">
+                <div class="tim-avatar">D</div>
+                <div class="tim-jabatan">Chief Financial Officer</div>
+              </div>
+              <div class="tim-card-body">
+                <div class="tim-name">Deilla Tri Augustina</div>
+                <p class="tim-desc">
+                  Fokus pada pengelolaan keuangan, anggaran, dan
+                  perencanaan finansial demi pertumbuhan bisnis yang berkelanjutan.
+                </p>
+              </div>
+            </div>
+            <!-- CMO -->
+            <div class="glass-card tim-card tim-card-3 reveal reveal-delay-3">
+              <div class="tim-card-header">
+                <div class="tim-avatar">B</div>
+                <div class="tim-jabatan">Chief Marketing Officer</div>
+              </div>
+              <div class="tim-card-body">
+                <div class="tim-name">Bayu Satria Ramadhan</div>
+                <p class="tim-desc">
+                  Fokus pada strategi pemasaran, branding, dan akuisisi
+                  pengguna untuk membangun ekosistem komunitas LearnUp yang kuat.
+                </p>
+              </div>
+            </div>
+            <!-- CTO -->
+            <div class="glass-card tim-card tim-card-4 reveal reveal-delay-4">
+              <div class="tim-card-header">
+                <div class="tim-avatar">T</div>
+                <div class="tim-jabatan">Chief Technology Officer</div>
+              </div>
+              <div class="tim-card-body">
+                <div class="tim-name">Muhammad Taufiq Hidayatullah</div>
+                <p class="tim-desc">
+                  Fokus pada bidang pengembangan aplikasi, sistem, dan teknologi
+                  platform LearnUp dari fondasi hingga skalabilitas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wave-divider">
+        <svg
+          viewBox="0 0 1200 50"
+          preserveAspectRatio="none"
+          style="height: 35px"
+        >
+          <path
+            d="M0,35 C400,0 800,50 1200,20 L1200,50 L0,50 Z"
+            fill="rgba(255,101,132,.05)"
+          />
+        </svg>
+      </div>
+
+      <!-- ============================================================ CTA FINAL ============================================================ -->
+      <section id="cta-final" class="section">
+        <div class="cta-blob cta-blob-1"></div>
+        <div class="cta-blob cta-blob-2"></div>
+        <div class="container cta-content">
+          <div class="reveal">
+            <div
+              class="section-badge"
+              style="
+                background: rgba(255, 255, 255, 0.15);
+                border-color: rgba(255, 255, 255, 0.3);
+                color: #fff;
+              "
+            >
+              🚀 Bergabung Sekarang
+            </div>
+            <h2 class="cta-title">
+              Mulai Perjalanan Belajarmu<br /><span style="opacity: 0.9"
+                >Hari Ini, Gratis!</span
+              >
+            </h2>
+            <p class="cta-sub">
+              Bergabunglah dengan lebih dari 50.000 pelajar yang sudah merasakan
+              manfaat LearnUp. Daftar gratis, mulai belajar, dan raih impianmu!
+            </p>
+          </div>
+          <div class="reveal reveal-delay-2">
+            <div class="email-form">
+              <input
+                type="email"
+                id="emailInput"
+                class="email-input"
+                placeholder="Masukkan email kamu..."
+              />
+              <button class="btn btn-white" onclick="handleEmailSubmit()">
+                <i class="fas fa-paper-plane"></i>Daftar Sekarang
+              </button>
+            </div>
+            <div class="cta-note">
+              <i
+                class="fas fa-infinity"
+                style="color: rgba(255, 255, 255, 0.6)"
+              ></i
+              >Gratis selamanya
+              <span style="opacity: 0.5">·</span>
+              <i class="fas fa-ban" style="color: rgba(255, 255, 255, 0.6)"></i
+              >Tidak ada spam
+              <span style="opacity: 0.5">·</span>
+              <i class="fas fa-times" style="color: rgba(255, 255, 255, 0.6)"></i
+              >Batal kapan saja
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ SIMULATION PAGE BACKGROUND LAYERS (mirrors landing page) ============================================================ -->
+      <!-- These are siblings to #sim-page, shown/hidden with it -->
+
+      <!-- ============================================================ SIMULATION PAGE (embedded) ============================================================ -->
+      <div id="sim-page" style="display:none;position:fixed;inset:0;z-index:10000;overflow-y:auto;background:var(--bg-base);" class="sim-page-wrapper">
+        
+        <!-- SIM NAVBAR -->
+        <nav class="sim-navbar">
+          <a class="logo" href="#" onclick="closeSimulation();return false;" style="text-decoration:none;">
+            <div class="logo-icon">🎓</div>
+            <span>LearnUp</span>
+          </a>
+          <div class="nav-right">
+            <button class="theme-btn" id="simThemeBtn" aria-label="Toggle theme" onclick="toggleSimTheme(event)">
+              <div class="toggle-track"><div class="toggle-knob"></div></div>
+            </button>
+          </div>
+        </nav>
+        <!-- Back button floating top-left -->
+        <button class="sim-back-btn" onclick="closeSimulation()" style="position:fixed;top:80px;left:1.2rem;z-index:10001;">
+          <i class="fas fa-arrow-left"></i> Kembali
+        </button>
+
+        <!-- SIM HERO -->
+        <section style="min-height:55vh;display:flex;align-items:center;padding:calc(68px + 3rem) 1.2rem 3rem;position:relative;overflow:hidden;">
+          <div style="position:absolute;width:400px;height:400px;border-radius:50%;background:rgba(108,99,255,0.12);top:-80px;right:-100px;filter:blur(80px);animation:blobFloat 8s ease-in-out infinite;pointer-events:none;"></div>
+          <div style="position:absolute;width:350px;height:350px;border-radius:50%;background:rgba(67,230,197,0.1);bottom:-80px;left:-80px;filter:blur(80px);animation:blobFloat 10s ease-in-out infinite reverse;pointer-events:none;"></div>
+          <div style="max-width:900px;margin:0 auto;width:100%;text-align:center;">
+            <div class="section-badge" style="margin-bottom:1.4rem;animation:fadeInDown 0.55s var(--ease-smooth) both;display:inline-flex;">
+              <div style="width:8px;height:8px;background:var(--accent);border-radius:50%;animation:simPulse 1.5s ease infinite;"></div>
+              Mobile App Preview · Interactive Simulation
+            </div>
+            <h1 style="font-weight:900;font-size:clamp(2.2rem,5.5vw,4rem);line-height:1.08;letter-spacing:-2px;margin-bottom:1rem;animation:fadeInUp 0.6s var(--ease-smooth) 0.08s both;">
+              Dashboard & <span class="gradient-text">Mobile App</span><br/>Simulation
+            </h1>
+            <p style="font-weight:500;font-size:clamp(1rem,2vw,1.2rem);color:var(--text-secondary);line-height:1.75;max-width:600px;margin:0 auto 2rem;animation:fadeInUp 0.6s var(--ease-smooth) 0.14s both;">
+              Rasakan pengalaman belajar interaktif langsung di browser kamu dari dashboard analitik hingga quiz adaptif bertenaga AI.
+            </p>
+            <div style="display:flex;gap:0.85rem;flex-wrap:wrap;justify-content:center;animation:fadeInUp 0.6s var(--ease-smooth) 0.20s both;">
+              <a href="#sim-phone-section" class="btn btn-primary"><i class="fas fa-mobile-alt"></i> Lihat Simulasi</a>
+              <a href="#sim-features" class="btn btn-outline"><i class="fas fa-star"></i> Fitur Unggulan</a>
+            </div>
+            <div style="display:flex;gap:2rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap;animation:fadeInUp 0.6s var(--ease-smooth) 0.26s both;">
+              <div style="text-align:center;">
+                <div class="gradient-text" style="font-weight:900;font-size:1.8rem;line-height:1;">4</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.2rem;">Layar Interaktif</div>
+              </div>
+              <div style="text-align:center;">
+                <div class="gradient-text" style="font-weight:900;font-size:1.8rem;line-height:1;">8+</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.2rem;">Fitur Eksklusif</div>
+              </div>
+              <div style="text-align:center;">
+                <div class="gradient-text" style="font-weight:900;font-size:1.8rem;line-height:1;">iOS & Android</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.2rem;">Platform</div>
+              </div>
+              <div style="text-align:center;">
+                <div class="gradient-text" style="font-weight:900;font-size:1.8rem;line-height:1;">AI Powered</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.2rem;">Teknologi</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="wave-divider"><svg viewBox="0 0 1200 50" preserveAspectRatio="none" style="height:35px"><path d="M0,25 C300,50 900,0 1200,25 L1200,50 L0,50 Z" fill="rgba(108,99,255,.05)"/></svg></div>
+
+        <!-- APP PREVIEW SECTION -->
+        <section id="sim-phone-section" class="section" style="background:rgba(108,99,255,0.02);position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(108,99,255,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+          <div class="container">
+            <div style="text-align:center;margin-bottom:3rem;" class="reveal">
+              <div class="section-badge">📱 App Preview</div>
+              <h2 class="section-title">Simulasi <span class="gradient-text">Aplikasi Mobile</span></h2>
+              <p class="section-subtitle" style="margin:0 auto">Klik menu di sebelah kiri untuk menjelajahi setiap layar aplikasi LearnUp dengan desain modern, interaksi nyata.</p>
+            </div>
+
+            <!-- Main App Preview Layout -->
+            <div class="app-preview-layout reveal">
+              
+              <!-- LEFT: Menu Panel -->
+              <div class="app-menu-panel">
+                <div class="app-menu-title">🗂️ Jelajahi Layar App</div>
+                
+                <div class="app-menu-grid">
+                  <div class="app-menu-item mi-home active" onclick="simSwitchScreen(0)" id="simMenu0">
+                    <div class="app-menu-icon" style="background:rgba(108,99,255,0.12);">🏠</div>
+                    <div class="app-menu-info">
+                      <div class="app-menu-name">Home Dashboard</div>
+                      <div class="app-menu-desc">Lihat ringkasan belajar, streak harian, statistik XP, dan progress mata pelajaran dalam satu tampilan.</div>
+                    </div>
+                    <span class="app-menu-badge"><i class="fas fa-circle-dot"></i> Aktif</span>
+                    <div class="app-menu-active-dot"></div>
+                  </div>
+
+                  <div class="app-menu-item mi-course" onclick="simSwitchScreen(1)" id="simMenu1">
+                    <div class="app-menu-icon" style="background:rgba(67,230,197,0.12);">📚</div>
+                    <div class="app-menu-info">
+                      <div class="app-menu-name">Kursus</div>
+                      <div class="app-menu-desc">Akses video pembelajaran, modul interaktif, dan materi lengkap dengan tampilan yang intuitif.</div>
+                    </div>
+                    <span class="app-menu-badge"><i class="fas fa-play-circle"></i> Video + Modul</span>
+                    <div class="app-menu-active-dot"></div>
+                  </div>
+
+                  <div class="app-menu-item mi-quiz" onclick="simSwitchScreen(2)" id="simMenu2">
+                    <div class="app-menu-icon" style="background:rgba(255,101,132,0.12);">📝</div>
+                    <div class="app-menu-info">
+                      <div class="app-menu-name">Quiz Adaptif</div>
+                      <div class="app-menu-desc">Uji kemampuanmu dengan quiz bertenaga AI yang menyesuaikan tingkat kesulitan secara otomatis.</div>
+                    </div>
+                    <span class="app-menu-badge"><i class="fas fa-robot"></i> AI Powered</span>
+                    <div class="app-menu-active-dot"></div>
+                  </div>
+
+                  <div class="app-menu-item mi-profile" onclick="simSwitchScreen(3)" id="simMenu3">
+                    <div class="app-menu-icon" style="background:rgba(255,209,102,0.12);">🔍</div>
+                    <div class="app-menu-info">
+                      <div class="app-menu-name">Explore</div>
+                      <div class="app-menu-desc">Jelajahi ribuan mata pelajaran, konten trending, dan rekomendasi kurikulum yang disesuaikan AI.</div>
+                    </div>
+                    <span class="app-menu-badge"><i class="fas fa-compass"></i> Discover</span>
+                    <div class="app-menu-active-dot"></div>
+                  </div>
+
+                  <div class="app-menu-item mi-notif" onclick="simSwitchScreen(4)" id="simMenu4">
+                    <div class="app-menu-icon" style="background:rgba(255,101,132,0.12);">🔔</div>
+                    <div class="app-menu-info">
+                      <div class="app-menu-name">Notifikasi</div>
+                      <div class="app-menu-desc">Pengingat belajar, badge baru, update leaderboard, dan pesan dari AI Tutor personalmu.</div>
+                    </div>
+                    <span class="app-menu-badge"><i class="fas fa-bell"></i> Smart Alerts</span>
+                    <div class="app-menu-active-dot"></div>
+                  </div>
+
+                  <div class="app-menu-item mi-leaderboard" onclick="simSwitchScreen(5)" id="simMenu5">
+                    <div class="app-menu-icon" style="background:rgba(108,99,255,0.12);">👤</div>
+                    <div class="app-menu-info">
+                      <div class="app-menu-name">Profil & Leaderboard</div>
+                      <div class="app-menu-desc">Pantau pencapaianmu, badge koleksi, dan persaingan di leaderboard mingguan bersama teman.</div>
+                    </div>
+                    <span class="app-menu-badge"><i class="fas fa-trophy"></i> Ranking</span>
+                    <div class="app-menu-active-dot"></div>
+                  </div>
+                </div>
+
+                <!-- Info note -->
+                <div style="margin-top:0.5rem;padding:1rem 1.2rem;background:rgba(67,230,197,0.06);border:1px solid rgba(67,230,197,0.15);border-radius:14px;font-size:0.75rem;color:var(--text-muted);line-height:1.6;">
+                  <i class="fas fa-info-circle" style="color:var(--primary);margin-right:0.3rem;"></i>
+                  Gerakkan mouse di atas frame iPhone untuk efek parallax 3D · Klik menu atau layar untuk beralih tampilan
+                </div>
+              </div>
+
+              <!-- RIGHT: iPhone 16 Pro Frame -->
+              <div style="display:flex;flex-direction:column;align-items:center;gap:1.2rem;">
+                <div class="iphone-parallax-wrap" id="simPhonesStage">
+                  <div class="iphone16-pro" id="simPhoneFrame">
+                    <!-- Hardware buttons -->
+                    <div class="iphone16-btn-silent"></div>
+                    <div class="iphone16-btn-vol-up"></div>
+                    <div class="iphone16-btn-vol-dn"></div>
+                    <div class="iphone16-btn-power"></div>
+                    <!-- Camera in dynamic island -->
+                    <div class="iphone16-camera"></div>
+                    <!-- Shine effect -->
+                    <div class="iphone16-shine"></div>
+                    <!-- Screen -->
+                    <div class="iphone16-screen-wrap">
+                      <div class="iphone16-screen-inner">
+                        <!-- STATUS BAR (persistent) -->
+                        <div class="sim-status-bar" id="simStatusBar">
+                          <div class="sim-status-time" id="simPhoneClock">09:41</div>
+                          <div class="sim-status-island-gap"></div>
+                          <div class="sim-status-icons">
+                            <!-- Signal bars -->
+                            <div class="sim-signal-bars">
+                              <div class="sim-signal-bar"></div>
+                              <div class="sim-signal-bar"></div>
+                              <div class="sim-signal-bar"></div>
+                              <div class="sim-signal-bar"></div>
+                            </div>
+                            <!-- WiFi -->
+                            <svg class="sim-wifi-icon" width="14" height="11" viewBox="0 0 13 10" fill="none">
+                              <circle cx="6.5" cy="8.8" r="1.1" fill="white"/>
+                              <path d="M3.9 6.1a3.7 3.7 0 0 1 5.2 0" stroke="white" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                              <path d="M1.6 3.8a6.2 6.2 0 0 1 9.8 0" stroke="white" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+                              <path d="M0 1.8A8.6 8.6 0 0 1 13 1.8" stroke="white" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.4"/>
+                            </svg>
+                            <!-- Battery -->
+                            <div class="sim-status-battery"><div class="sim-battery-fill"></div></div>
+                          </div>
+                        </div>
+
+                        <!-- SCREEN 0: HOME -->
+                        <div class="phone-screen-content screen-home" id="simScreen0" style="display:flex;">
+                          <div class="sh-topbar">
+                            <div><div class="sh-greeting">Selamat Sore, 👋</div><div class="sh-name">Kamu, Pelajar!</div></div>
+                            <div class="sh-avatar">AK</div>
+                          </div>
+                          <div class="sh-streak-bar">
+                            <div class="sh-streak-icon">🔥</div>
+                            <div class="sh-streak-info"><div class="sh-streak-val">21 Hari Streak!</div><div class="sh-streak-lbl">Terus pertahankan!</div></div>
+                            <div class="sh-streak-dots">
+                              <div class="sh-streak-dot active"></div><div class="sh-streak-dot active"></div><div class="sh-streak-dot active"></div><div class="sh-streak-dot active"></div><div class="sh-streak-dot active"></div><div class="sh-streak-dot"></div><div class="sh-streak-dot"></div>
+                            </div>
+                          </div>
+                          <div class="sh-stats">
+                            <div class="sh-stat"><div class="sh-stat-val">4200</div><div class="sh-stat-lbl">Total XP</div></div>
+                            <div class="sh-stat"><div class="sh-stat-val">92%</div><div class="sh-stat-lbl">Rata-rata Quiz</div></div>
+                            <div class="sh-stat"><div class="sh-stat-val">18</div><div class="sh-stat-lbl">Modul Selesai</div></div>
+                            <div class="sh-stat"><div class="sh-stat-val">#5</div><div class="sh-stat-lbl">Leaderboard</div></div>
+                          </div>
+                          <div class="sh-section-title">📚 Lanjutkan Belajar</div>
+                          <div class="sh-progress-item"><div class="sh-pi-top"><span class="sh-pi-name">📐 Matematika</span><span class="sh-pi-pct">78%</span></div><div class="sh-pi-bar"><div class="sh-pi-fill" style="width:78%"></div></div></div>
+                          <div class="sh-progress-item"><div class="sh-pi-top"><span class="sh-pi-name">🧪 Kimia</span><span class="sh-pi-pct">91%</span></div><div class="sh-pi-bar"><div class="sh-pi-fill" style="width:91%"></div></div></div>
+                          <div class="sh-progress-item"><div class="sh-pi-top"><span class="sh-pi-name">🗣️ Bahasa Inggris</span><span class="sh-pi-pct">65%</span></div><div class="sh-pi-bar"><div class="sh-pi-fill" style="width:65%"></div></div></div>
+                          <div class="sh-section-title" style="margin-top:2px;">⚡ Rekomendasi Hari Ini</div>
+                          <div style="display:flex;gap:7px;overflow:hidden;">
+                            <div style="flex:1;background:linear-gradient(135deg,rgba(108,99,255,0.25),rgba(67,230,197,0.15));border:1px solid rgba(108,99,255,0.3);border-radius:14px;padding:10px;cursor:pointer;">
+                              <div style="font-size:19px;margin-bottom:4px;">📐</div>
+                              <div style="font-size:9px;font-weight:800;color:#fff;">Integral Dasar</div>
+                              <div style="font-size:7.5px;color:rgba(255,255,255,0.45);margin-top:1px;">08:42 · Kalkulus</div>
+                            </div>
+                            <div style="flex:1;background:linear-gradient(135deg,rgba(255,101,132,0.2),rgba(255,209,102,0.1));border:1px solid rgba(255,101,132,0.25);border-radius:14px;padding:10px;cursor:pointer;">
+                              <div style="font-size:19px;margin-bottom:4px;">🧪</div>
+                              <div style="font-size:9px;font-weight:800;color:#fff;">Tabel Periodik</div>
+                              <div style="font-size:7.5px;color:rgba(255,255,255,0.45);margin-top:1px;">12:10 · Kimia</div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- SCREEN 1: COURSE -->
+                        <div class="phone-screen-content screen-course" id="simScreen1" style="display:none;">
+                          <div class="sc-header"><span class="sc-back" onclick="simSwitchScreen(0)">←</span><div class="sc-title">Matematika Kelas 12</div><span style="font-size:13px;color:rgba(255,255,255,0.4)">⋯</span></div>
+                          <div class="sc-video"><div class="sc-video-thumb"><div class="sc-play">▶</div></div><div class="sc-video-label">Bab 4: Integral</div><div class="sc-video-time">08:42</div></div>
+                          <div class="sc-progress-bar"><div class="sc-progress-fill"></div></div>
+                          <div class="sc-info">
+                            <div class="sc-chapter">Bab 4 · Kalkulus</div>
+                            <div class="sc-course-title">Integral Tak Tentu & Substitusi</div>
+                            <div class="sc-desc">Pelajari konsep integral sebagai kebalikan dari turunan dengan berbagai teknik penyelesaian soal.</div>
+                            <div class="sc-modules">
+                              <div class="sc-module active"><div class="sc-mod-icon">▶</div><div class="sc-mod-title">Integral Dasar</div><div class="sc-mod-dur">08:42</div><div class="sc-mod-check">🔵</div></div>
+                              <div class="sc-module"><div class="sc-mod-icon">📄</div><div class="sc-mod-title">Teknik Substitusi</div><div class="sc-mod-dur">12:15</div><div class="sc-mod-check" style="color:rgba(255,255,255,0.2)">○</div></div>
+                              <div class="sc-module"><div class="sc-mod-icon">📄</div><div class="sc-mod-title">Integral Parsial</div><div class="sc-mod-dur">10:33</div><div class="sc-mod-check" style="color:rgba(255,255,255,0.2)">○</div></div>
+                              <div class="sc-module"><div class="sc-mod-icon">📝</div><div class="sc-mod-title">Latihan Soal</div><div class="sc-mod-dur">20 Soal</div><div class="sc-mod-check" style="color:rgba(255,255,255,0.2)">○</div></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- SCREEN 2: QUIZ -->
+                        <div class="phone-screen-content screen-quiz" id="simScreen2" style="display:none;">
+                          <div class="sq-header"><div class="sq-title">📝 Quiz Kimia</div><div class="sq-score">+250 XP</div></div>
+                          <div class="sq-progress"><div class="sq-prog-bar"><div class="sq-prog-fill" style="width:30%"></div></div><span class="sq-prog-label">3/10</span></div>
+                          <div class="sq-question-card">
+                            <div class="sq-q-number">Soal 3 dari 10</div>
+                            <div class="sq-q-text">Unsur dengan nomor atom 17 termasuk dalam golongan dan periode berapa dalam tabel periodik?</div>
+                          </div>
+                          <div class="sq-options" id="simQuizOptions">
+                            <div class="sq-option" data-ans="A" onclick="simHandleQuiz(this,'A')"><div class="sq-option-letter">A</div>Golongan VA, Periode 3</div>
+                            <div class="sq-option" data-ans="B" onclick="simHandleQuiz(this,'B')"><div class="sq-option-letter">B</div>Golongan VIIA, Periode 3</div>
+                            <div class="sq-option" data-ans="C" onclick="simHandleQuiz(this,'C')"><div class="sq-option-letter">C</div>Golongan VIIB, Periode 4</div>
+                            <div class="sq-option" data-ans="D" onclick="simHandleQuiz(this,'D')"><div class="sq-option-letter">D</div>Golongan IIA, Periode 2</div>
+                          </div>
+                          <div class="sq-ai-hint"><div class="sq-ai-icon">🤖</div><div class="sq-ai-text"><strong style="color:#43e6c5">AI Hint:</strong> Perhatikan konfigurasi elektron unsur tersebut. Jumlah elektron valensi menentukan golongan, jumlah kulit menentukan periode.</div></div>
+                          <div class="sq-btn-row"><button class="sq-btn sq-btn-skip">Lewati</button><button class="sq-btn sq-btn-next">Lanjut →</button></div>
+                        </div>
+
+                        <!-- SCREEN 3: EXPLORE -->
+                        <div class="phone-screen-content screen-explore" id="simScreen3" style="display:none;">
+                          <div style="display:flex;align-items:center;justify-content:space-between;">
+                            <div style="font-size:11px;font-weight:900;color:#fff;">🔍 Jelajahi</div>
+                            <div style="font-size:7px;color:#6c63ff;font-weight:700;">Filter</div>
+                          </div>
+                          <div class="sx-search">
+                            <span class="sx-search-icon">🔍</span>
+                            <span class="sx-search-text">Cari mata pelajaran...</span>
+                          </div>
+                          <div class="sx-cats">
+                            <div class="sx-cat active">Semua</div>
+                            <div class="sx-cat">SMA</div>
+                            <div class="sx-cat">SMP</div>
+                            <div class="sx-cat">Ujian</div>
+                          </div>
+                          <div class="sx-section">🔥 Populer Minggu Ini</div>
+                          <div class="sx-cards">
+                            <div class="sx-card">
+                              <div class="sx-card-img" style="background:linear-gradient(135deg,#6c63ff,#43e6c5);">📐</div>
+                              <div class="sx-card-meta">
+                                <div class="sx-card-subj">Matematika</div>
+                                <div class="sx-card-info">48 modul · 12.4K pelajar</div>
+                              </div>
+                            </div>
+                            <div class="sx-card">
+                              <div class="sx-card-img" style="background:linear-gradient(135deg,#ff6584,#ffd166);">🧪</div>
+                              <div class="sx-card-meta">
+                                <div class="sx-card-subj">Kimia</div>
+                                <div class="sx-card-info">36 modul · 9.1K pelajar</div>
+                              </div>
+                            </div>
+                            <div class="sx-card">
+                              <div class="sx-card-img" style="background:linear-gradient(135deg,#43e6c5,#6c63ff);">⚡</div>
+                              <div class="sx-card-meta">
+                                <div class="sx-card-subj">Fisika</div>
+                                <div class="sx-card-info">52 modul · 8.7K pelajar</div>
+                              </div>
+                            </div>
+                            <div class="sx-card">
+                              <div class="sx-card-img" style="background:linear-gradient(135deg,#ffd166,#ff6584);">🌍</div>
+                              <div class="sx-card-meta">
+                                <div class="sx-card-subj">Geografi</div>
+                                <div class="sx-card-info">28 modul · 5.2K pelajar</div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="sx-section" style="margin-top:4px;">📈 Trending</div>
+                          <div class="sx-trending">
+                            <div class="sx-trend-item"><div class="sx-trend-rank">1</div><div class="sx-trend-info"><div class="sx-trend-name">Persiapan SNBT 2025</div><div class="sx-trend-cnt">3.2K pelajar aktif</div></div><div class="sx-trend-badge">🔥 Hot</div></div>
+                            <div class="sx-trend-item"><div class="sx-trend-rank">2</div><div class="sx-trend-info"><div class="sx-trend-name">Integral & Kalkulus</div><div class="sx-trend-cnt">2.8K pelajar aktif</div></div><div class="sx-trend-badge">⭐ New</div></div>
+                          </div>
+                        </div>
+
+                        <!-- SCREEN 4: NOTIFIKASI -->
+                        <div class="phone-screen-content screen-notif" id="simScreen4" style="display:none;">
+                          <div class="sn-header">
+                            <div class="sn-title">🔔 Notifikasi</div>
+                            <div class="sn-clear">Baca semua</div>
+                          </div>
+                          <div class="sn-tab-row">
+                            <div class="sn-tab active">Semua</div>
+                            <div class="sn-tab">Belajar</div>
+                            <div class="sn-tab">Sosial</div>
+                          </div>
+                          <div class="sn-list">
+                            <div class="sn-item unread">
+                              <div class="sn-item-icon" style="background:rgba(255,209,102,0.15);">🏆</div>
+                              <div class="sn-item-body">
+                                <div class="sn-item-title">Badge Baru Diraih!</div>
+                                <div class="sn-item-desc">Kamu meraih badge "Streak Master 21 Hari". Keren banget!</div>
+                                <div class="sn-item-time">2 menit lalu</div>
+                              </div>
+                              <div class="sn-unread-dot"></div>
+                            </div>
+                            <div class="sn-item unread">
+                              <div class="sn-item-icon" style="background:rgba(108,99,255,0.15);">📚</div>
+                              <div class="sn-item-body">
+                                <div class="sn-item-title">Waktunya Belajar!</div>
+                                <div class="sn-item-desc">Kamu belum menyelesaikan Modul Integral hari ini. Yuk lanjutkan!</div>
+                                <div class="sn-item-time">15 menit lalu</div>
+                              </div>
+                              <div class="sn-unread-dot"></div>
+                            </div>
+                            <div class="sn-item">
+                              <div class="sn-item-icon" style="background:rgba(67,230,197,0.15);">📈</div>
+                              <div class="sn-item-body">
+                                <div class="sn-item-title">Naik Peringkat!</div>
+                                <div class="sn-item-desc">Kamu naik ke peringkat #5 di leaderboard minggu ini. Terus semangat!</div>
+                                <div class="sn-item-time">1 jam lalu</div>
+                              </div>
+                            </div>
+                            <div class="sn-item">
+                              <div class="sn-item-icon" style="background:rgba(255,101,132,0.15);">🤖</div>
+                              <div class="sn-item-body">
+                                <div class="sn-item-title">AI Tutor: Rekomendasi Baru</div>
+                                <div class="sn-item-desc">Berdasarkan pola belajarmu, kami rekomendasikan Modul Statistika.</div>
+                                <div class="sn-item-time">3 jam lalu</div>
+                              </div>
+                            </div>
+                            <div class="sn-item">
+                              <div class="sn-item-icon" style="background:rgba(255,209,102,0.1);">👥</div>
+                              <div class="sn-item-body">
+                                <div class="sn-item-title">Teman Baru Bergabung</div>
+                                <div class="sn-item-desc">Dini Nur bergabung di kelas Kimia bersamamu. Ayo saling semangati!</div>
+                                <div class="sn-item-time">Kemarin</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- SCREEN 5: PROFILE -->
+                        <div class="phone-screen-content screen-profile" id="simScreen5" style="display:none;">
+                          <div class="sp-banner">
+                            <div class="sp-avatar-wrap">
+                              <div class="sp-avatar">AK</div>
+                              <div class="sp-name">Aldi Kusuma</div>
+                              <div class="sp-role">Pelajar SMA · Kelas 12</div>
+                              <div class="sp-level">⭐ Level 12 Explorer</div>
+                            </div>
+                          </div>
+                          <div class="sp-body">
+                            <div class="sp-mini-stats">
+                              <div class="sp-mini-stat"><div class="sp-ms-val">4.2K</div><div class="sp-ms-lbl">XP Total</div></div>
+                              <div class="sp-mini-stat"><div class="sp-ms-val">21</div><div class="sp-ms-lbl">Streak</div></div>
+                              <div class="sp-mini-stat"><div class="sp-ms-val">18</div><div class="sp-ms-lbl">Modul</div></div>
+                            </div>
+                            <div class="sp-section-lbl">🏅 Pencapaian</div>
+                            <div class="sp-achievements">
+                              <div class="sp-ach" title="Streak 7 Hari">🔥</div><div class="sp-ach" title="Quiz Master">🧠</div><div class="sp-ach" title="Pelajar Rajin">📚</div><div class="sp-ach" title="First Login">⭐</div>
+                              <div class="sp-ach locked">🏆</div><div class="sp-ach locked">💎</div><div class="sp-ach locked">🎯</div><div class="sp-ach locked">🚀</div>
+                            </div>
+                            <div class="sp-section-lbl">🏆 Leaderboard Minggu Ini</div>
+                            <div class="sp-lb">
+                              <div class="sp-lb-item"><div class="sp-lb-rank" style="color:#ffd166">🥇</div><div class="sp-lb-avatar" style="background:linear-gradient(135deg,#ffd166,#ff6584)">DN</div><div class="sp-lb-name">Dini Nur</div><div class="sp-lb-pts">5.8K XP</div></div>
+                              <div class="sp-lb-item"><div class="sp-lb-rank" style="color:#aab4be">🥈</div><div class="sp-lb-avatar" style="background:linear-gradient(135deg,#43e6c5,#6c63ff)">RS</div><div class="sp-lb-name">Rizky S</div><div class="sp-lb-pts">5.1K XP</div></div>
+                              <div class="sp-lb-item sp-me"><div class="sp-lb-rank" style="color:var(--primary-light)">#5</div><div class="sp-lb-avatar">AK</div><div class="sp-lb-name">Kamu 😊</div><div class="sp-lb-pts">4.2K XP</div></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- PERSISTENT BOTTOM NAV -->
+                        <div class="sim-bottom-nav" id="simBottomNav">
+                          <div class="sbn-item active" id="simNav0" onclick="simSwitchScreen(0)">
+                            <div class="sbn-icon">🏠</div>
+                            <div class="sbn-lbl">Home</div>
+                            <div class="sbn-dot"></div>
+                          </div>
+                          <div class="sbn-item" id="simNav1" onclick="simSwitchScreen(1)">
+                            <div class="sbn-icon">📚</div>
+                            <div class="sbn-lbl">Kursus</div>
+                          </div>
+                          <div class="sbn-item" id="simNav2" onclick="simSwitchScreen(2)">
+                            <div class="sbn-icon">📝</div>
+                            <div class="sbn-lbl">Quiz</div>
+                          </div>
+                          <div class="sbn-item" id="simNav3" onclick="simSwitchScreen(3)">
+                            <div class="sbn-icon">🔍</div>
+                            <div class="sbn-lbl">Explore</div>
+                          </div>
+                          <div class="sbn-item" id="simNav4" onclick="simSwitchScreen(4)">
+                            <div class="sbn-icon">🔔</div>
+                            <div class="sbn-lbl">Notif</div>
+                            <div class="sbn-badge">2</div>
+                          </div>
+                          <div class="sbn-item" id="simNav5" onclick="simSwitchScreen(5)">
+                            <div class="sbn-icon">👤</div>
+                            <div class="sbn-lbl">Profil</div>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="display:none;" id="simPhoneLabel">🏠 Home Dashboard</div>
+              </div>        </section>
+
+        <div class="wave-divider"><svg viewBox="0 0 1200 50" preserveAspectRatio="none" style="height:35px"><path d="M0,0 C400,50 800,0 1200,35 L1200,50 L0,50 Z" fill="rgba(67,230,197,.05)"/></svg></div>
+
+        <!-- SIM FEATURES -->
+        <section id="sim-features" class="section">
+          <div class="container">
+            <div class="text-center reveal">
+              <div class="section-badge">✨ Fitur Eksklusif</div>
+              <h2 class="section-title">Fitur <span class="gradient-text">Mobile App</span> LearnUp</h2>
+              <p class="section-subtitle">Dirancang khusus untuk pengalaman belajar yang seamless, kapan saja dan di mana saja dari genggaman tanganmu.</p>
+            </div>
+            <div class="sim-features-grid">
+              <div class="sim-feature-card sfc-1 reveal reveal-delay-1"><div style="width:52px;height:52px;border-radius:16px;background:rgba(108,99,255,0.12);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🎬</div><div style="font-weight:800;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.4rem;">Micro-Learning Video</div><div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.85rem;">Video berdurasi 5-15 menit dengan format vertikal yang dioptimalkan untuk layar HP. Belajar kapan saja, bahkan di perjalanan.</div><span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:99px;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.22);color:var(--primary)"><i class="fas fa-mobile-alt"></i> Mobile App Exclusive</span></div>
+              <div class="sim-feature-card sfc-2 reveal reveal-delay-2"><div style="width:52px;height:52px;border-radius:16px;background:rgba(67,230,197,0.12);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🤖</div><div style="font-weight:800;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.4rem;">AI Tutor Personal</div><div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.85rem;">Asisten belajar bertenaga AI yang siap menjawab pertanyaanmu 24/7, memberikan penjelasan adaptif sesuai gaya belajarmu.</div><span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:99px;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.22);color:var(--primary)"><i class="fas fa-mobile-alt"></i> Mobile App Exclusive</span></div>
+              <div class="sim-feature-card sfc-3 reveal reveal-delay-3"><div style="width:52px;height:52px;border-radius:16px;background:rgba(255,101,132,0.12);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🧩</div><div style="font-weight:800;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.4rem;">Adaptive Quiz Engine</div><div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.85rem;">Sistem quiz yang secara otomatis menyesuaikan tingkat kesulitan berdasarkan performa kamu. Semakin pintar, semakin menantang.</div><span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:99px;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.22);color:var(--primary)"><i class="fas fa-mobile-alt"></i> Mobile App Exclusive</span></div>
+              <div class="sim-feature-card sfc-4 reveal reveal-delay-4"><div style="width:52px;height:52px;border-radius:16px;background:rgba(255,209,102,0.12);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">📊</div><div style="font-weight:800;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.4rem;">Progress Tracker Real-Time</div><div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.85rem;">Dashboard analitik yang menampilkan perkembangan belajar secara real-time dengan grafik dan visualisasi data yang informatif.</div><span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:99px;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.22);color:var(--primary)"><i class="fas fa-mobile-alt"></i> Mobile App Exclusive</span></div>
+              <div class="sim-feature-card sfc-5 reveal reveal-delay-1"><div style="width:52px;height:52px;border-radius:16px;background:rgba(108,99,255,0.1);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🔥</div><div style="font-weight:800;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.4rem;">Streak & Gamifikasi</div><div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.85rem;">Sistem streak harian, poin XP, badge pencapaian, dan leaderboard yang membuat belajar terasa seperti bermain game.</div><span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:99px;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.22);color:var(--primary)"><i class="fas fa-mobile-alt"></i> Mobile App Exclusive</span></div>
+              <div class="sim-feature-card sfc-6 reveal reveal-delay-2"><div style="width:52px;height:52px;border-radius:16px;background:rgba(255,101,132,0.1);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">📥</div><div style="font-weight:800;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.4rem;">Offline Mode</div><div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.85rem;">Download materi dan kerjakan quiz tanpa koneksi internet. Belajar tetap lancar meski sinyal hilang, sempurna untuk daerah yang terpencil.</div><span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:99px;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.22);color:var(--primary)"><i class="fas fa-mobile-alt"></i> Mobile App Exclusive</span></div>
+              <div class="sim-feature-card sfc-7 reveal reveal-delay-3"><div style="width:52px;height:52px;border-radius:16px;background:rgba(67,230,197,0.1);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🔔</div><div style="font-weight:800;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.4rem;">Smart Push Notification</div><div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.85rem;">Pengingat belajar cerdas yang menganalisis pola aktivitasmu dan mengirim notifikasi di waktu paling efektif untukmu.</div><span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:99px;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.22);color:var(--primary)"><i class="fas fa-mobile-alt"></i> Mobile App Exclusive</span></div>
+              <div class="sim-feature-card sfc-8 reveal reveal-delay-4"><div style="width:52px;height:52px;border-radius:16px;background:rgba(108,99,255,0.1);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:1rem;">🎙️</div><div style="font-weight:800;font-size:0.95rem;color:var(--text-primary);margin-bottom:0.4rem;">Voice Search & Command</div><div style="font-size:0.82rem;color:var(--text-secondary);line-height:1.65;margin-bottom:0.85rem;">Cari materi dan navigasi aplikasi menggunakan suara. Fitur aksesibilitas yang membuat LearnUp inklusif untuk semua pengguna.</div><span style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.65rem;font-weight:700;padding:0.22rem 0.7rem;border-radius:99px;background:rgba(108,99,255,0.12);border:1px solid rgba(108,99,255,0.22);color:var(--primary)"><i class="fas fa-mobile-alt"></i> Mobile App Exclusive</span></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="wave-divider"><svg viewBox="0 0 1200 50" preserveAspectRatio="none" style="height:35px"><path d="M0,30 C300,0 900,50 1200,25 L1200,50 L0,50 Z" fill="rgba(108,99,255,.05)"/></svg></div>
+
+        <!-- SIM TECHNICAL SPECS -->
+        <section id="sim-tech-specs" class="section" style="background:rgba(108,99,255,0.02);">
+          <div class="container">
+            <div class="text-center reveal">
+              <div class="section-badge">⚙️ Spesifikasi Teknis</div>
+              <h2 class="section-title">Technical <span class="gradient-text">Specification</span></h2>
+              <p class="section-subtitle">Dibangun dengan teknologi terkini untuk memastikan performa terbaik, keamanan data, dan skalabilitas platform.</p>
+            </div>
+            <div class="sim-specs-grid">
+              <div class="sim-spec-card reveal reveal-delay-1"><span class="sim-spec-icon">📱</span><div class="sim-spec-title">Platform & Framework</div><table class="sim-spec-table"><tr><td>Framework</td><td><span class="sim-spec-tag">React Native</span> <span class="sim-spec-tag sim-spec-tag-accent">Flutter</span></td></tr><tr><td>iOS Min</td><td>iOS 14.0+</td></tr><tr><td>Android Min</td><td>Android 8.0 (API 26)</td></tr><tr><td>Web</td><td>PWA · Chrome · Safari</td></tr><tr><td>Build</td><td>Expo SDK 50 · Dart 3.x</td></tr></table></div>
+              <div class="sim-spec-card reveal reveal-delay-2"><span class="sim-spec-icon">☁️</span><div class="sim-spec-title">Backend & Cloud</div><table class="sim-spec-table"><tr><td>Server</td><td><span class="sim-spec-tag sim-spec-tag-accent">Node.js</span> <span class="sim-spec-tag">NestJS</span></td></tr><tr><td>Database</td><td>PostgreSQL · Redis Cache</td></tr><tr><td>Cloud</td><td>AWS · CloudFront CDN</td></tr><tr><td>Real-time</td><td>WebSocket · Socket.io</td></tr><tr><td>Storage</td><td>AWS S3 · CloudFront</td></tr></table></div>
+              <div class="sim-spec-card reveal reveal-delay-3"><span class="sim-spec-icon">🤖</span><div class="sim-spec-title">AI & Machine Learning</div><table class="sim-spec-table"><tr><td>AI Model</td><td>GPT-4o · Claude 3</td></tr><tr><td>Adaptive</td><td>Item Response Theory</td></tr><tr><td>NLP</td><td>Hugging Face · LangChain</td></tr><tr><td>Rec. Engine</td><td>Collaborative Filtering</td></tr><tr><td>Analytics</td><td>TensorFlow · PyTorch</td></tr></table></div>
+              <div class="sim-spec-card reveal reveal-delay-1"><span class="sim-spec-icon">🔐</span><div class="sim-spec-title">Keamanan & Privasi</div><table class="sim-spec-table"><tr><td>Auth</td><td>JWT · OAuth 2.0 · SSO</td></tr><tr><td>Enkripsi</td><td>AES-256 · TLS 1.3</td></tr><tr><td>Compliance</td><td><span class="sim-spec-tag sim-spec-tag-secondary">GDPR</span> <span class="sim-spec-tag sim-spec-tag-accent">PDPA ID</span></td></tr><tr><td>2FA</td><td>TOTP · SMS · Biometric</td></tr><tr><td>Audit</td><td>Log semua aktivitas</td></tr></table></div>
+              <div class="sim-spec-card reveal reveal-delay-2"><span class="sim-spec-icon">⚡</span><div class="sim-spec-title">Performa & Skalabilitas</div><table class="sim-spec-table"><tr><td>Uptime</td><td><span class="sim-spec-tag sim-spec-tag-accent">99.9% SLA</span></td></tr><tr><td>Response</td><td>&lt; 200ms API latency</td></tr><tr><td>Concurrent</td><td>100K+ pengguna aktif</td></tr><tr><td>Video CDN</td><td>1080p HLS Adaptive</td></tr><tr><td>Offline</td><td>IndexedDB · SQLite</td></tr></table></div>
+              <div class="sim-spec-card reveal reveal-delay-3"><span class="sim-spec-icon">🔔</span><div class="sim-spec-title">Notifikasi & Integrasi</div><table class="sim-spec-table"><tr><td>Push Notif</td><td>FCM · APNs</td></tr><tr><td>In-App</td><td>Real-time · Batch</td></tr><tr><td>Email</td><td>SendGrid · Mailchimp</td></tr><tr><td>Payment</td><td>Midtrans · DANA · GoPay</td></tr><tr><td>Analytics</td><td>Mixpanel · Firebase</td></tr></table></div>
+            </div>
+          </div>
+        </section>
+
+        <div class="wave-divider"><svg viewBox="0 0 1200 50" preserveAspectRatio="none" style="height:35px"><path d="M0,10 C300,50 900,0 1200,35 L1200,50 L0,50 Z" fill="rgba(255,101,132,.05)"/></svg></div>
+
+        <!-- SIM CTA / DOWNLOAD -->
+        <section class="sim-cta-section">
+          <div class="sim-cta-content">
+            <div class="section-badge" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;margin-bottom:1rem;">🚀 Download Sekarang</div>
+            <h2 style="font-weight:900;font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;letter-spacing:-1px;margin-bottom:1rem;">Bawa LearnUp ke<br/><span style="opacity:0.9">Genggaman Tanganmu!</span></h2>
+            <p style="font-size:clamp(0.95rem,2vw,1.1rem);opacity:0.88;margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;">Bergabunglah dengan lebih dari 50.000 pelajar yang sudah merasakan manfaat LearnUp. Daftar gratis, download app, dan mulai belajar hari ini!</p>
+            <div class="email-form" style="max-width:480px;margin:0 auto 1.5rem;">
+              <input type="email" id="simEmailInput" class="email-input" placeholder="Masukkan email kamu..."/>
+              <button class="btn btn-white" onclick="simHandleEmail()"><i class="fas fa-paper-plane"></i>Daftar</button>
+            </div>
+            <div style="font-size:0.78rem;opacity:0.65;display:flex;align-items:center;justify-content:center;gap:0.4rem;flex-wrap:wrap;">
+              <i class="fas fa-infinity" style="color:rgba(255,255,255,0.6)"></i>Gratis selamanya
+              <span style="opacity:0.5">·</span>
+              <i class="fas fa-ban" style="color:rgba(255,255,255,0.6)"></i>Tidak ada spam
+              <span style="opacity:0.5">·</span>
+              <i class="fas fa-times" style="color:rgba(255,255,255,0.6)"></i>Batal kapan saja
+            </div>
+            <div class="sim-store-btns">
+              <a href="https://www.apple.com/app-store/" target="_blank" rel="noopener" class="sim-store-btn">
+                <i class="fab fa-apple" style="font-size:1.1rem;"></i> App Store
+              </a>
+              <a href="https://play.google.com/store" target="_blank" rel="noopener" class="sim-store-btn">
+                <i class="fab fa-google-play" style="font-size:1rem;"></i> Play Store
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- SIM FOOTER -->
+        <footer class="sim-footer">
+          <div class="sim-footer-grid">
+            <div>
+              <a href="#" class="footer-logo sim-footer-logo" onclick="closeSimulation();return false;" style="text-decoration:none;">
+                <div class="logo-icon" style="width:32px;height:32px;font-size:1rem">🎓</div>
+                LearnUp
+              </a>
+              <p class="sim-footer-brand-p">Platform bimbingan belajar online interaktif terbaik di Indonesia. Belajar lebih cerdas, lebih cepat, lebih menyenangkan.</p>
+              <div class="sim-social-row">
+                <a href="https://www.instagram.com/hellolearnup.id/" target="_blank" rel="noopener" class="sim-social-btn sim-social-ig" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@hellolearnup.id" target="_blank" rel="noopener" class="sim-social-btn sim-social-tt" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/62895406020782" target="_blank" rel="noopener" class="sim-social-btn sim-social-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&to=learnup.id.official@gmail.com" target="_blank" rel="noopener" class="sim-social-btn sim-social-em" title="Email Marketing"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/><path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/><path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"/><path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"/></svg></a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h4>Produk</h4>
+              <ul>
+                <li><a href="#sim-features" class="sim-footer-link">Fitur App</a></li>
+                <li><a href="#sim-tech-specs" class="sim-footer-link">Tech Specs</a></li>
+                <li><a href="#sim-phone-section" class="sim-footer-link">Simulasi</a></li>
+                <li><a href="#" class="sim-footer-link">Download App</a></li>
+                <li><a href="#" class="sim-footer-link">Update Terbaru</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Perusahaan</h4>
+              <ul>
+                <li><a href="#" class="sim-footer-link">Tentang Kami</a></li>
+                <li><a href="#" class="sim-footer-link">Blog</a></li>
+                <li><a href="#" class="sim-footer-link">Karir</a></li>
+                <li><a href="#" class="sim-footer-link">Kebijakan Privasi</a></li>
+                <li><a href="#" class="sim-footer-link">Syarat &amp; Ketentuan</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Dukungan</h4>
+              <ul>
+                <li><a href="#" class="sim-footer-link">Pusat Bantuan</a></li>
+                <li><a href="#" class="sim-footer-link">Hubungi Kami</a></li>
+                <li><a href="#" class="sim-footer-link">Forum Komunitas</a></li>
+                <li><a href="#" class="sim-footer-link">Status Layanan</a></li>
+                <li><a href="#" class="sim-footer-link">Laporkan Masalah</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="sim-footer-bottom">
+            <p>© 2025 LearnUp. Semua hak dilindungi. Dibuat dengan <span class="heart">❤️</span> di Indonesia.</p>
+            <p>Tim LearnUp · Dashboard Simulation v1.0 · Mobile App Preview</p>
+          </div>
+        </footer>
+
+      </div>
+      <!-- /sim-page -->
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="#hero" class="footer-logo">
+              <div
+                class="logo-icon"
+                style="width: 32px; height: 32px; font-size: 1rem"
+              >
+                🎓
+              </div>
+              LearnUp
+            </a>
+            <p class="sim-footer-brand-p">
+              Platform bimbingan belajar online interaktif terbaik di Indonesia.
+              Belajar lebih cerdas, lebih cepat, lebih menyenangkan.
+            </p>
+            <div class="social-row">
+              <a
+                href="https://www.instagram.com/hellolearnup.id/"
+                target="_blank"
+                rel="noopener"
+                class="social-btn social-ig"
+                title="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.tiktok.com/@hellolearnup.id"
+                target="_blank"
+                rel="noopener"
+                class="social-btn social-tt"
+                title="TikTok"
+                ><i class="fab fa-tiktok"></i
+              ></a>
+              <a
+                href="https://wa.me/62895406020782"
+                target="_blank"
+                rel="noopener"
+                class="social-btn social-wa"
+                title="WhatsApp"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://mail.google.com/mail/?view=cm&to=learnup.id.official@gmail.com" target="_blank" rel="noopener"
+                class="social-btn social-em"
+                title="Email Marketing"
+                ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22" height="22"><path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.657,0,3-1.343,3-3V16.2z"/><path fill="#1e88e5" d="M3,16.2l3.614,1.71L13,23.7V40H6c-1.657,0-3-1.343-3-3V16.2z"/><polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/><path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L9.876,8.859C9.132,8.301,8.228,8,7.298,8h0C4.924,8,3,9.924,3,12.298z"/><path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l3.124-2.341C38.868,8.301,39.772,8,40.702,8h0 C43.076,8,45,9.924,45,12.298z"/></svg
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Produk</h4>
+            <ul>
+              <li><a href="#fitur">Fitur Unggulan</a></li>
+              <li><a href="#harga">Paket Harga</a></li>
+              <li><a href="#cara-kerja">Cara Kerja</a></li>
+              <li><a href="#">Download App</a></li>
+              <li><a href="#">Update Terbaru</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Perusahaan</h4>
+            <ul>
+              <li><a href="#tim">Tentang Kami</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Karir</a></li>
+              <li><a href="#">Kebijakan Privasi</a></li>
+              <li><a href="#">Syarat &amp; Ketentuan</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Dukungan</h4>
+            <ul>
+              <li><a href="#">Pusat Bantuan</a></li>
+              <li><a href="#">Hubungi Kami</a></li>
+              <li><a href="#">Forum Komunitas</a></li>
+              <li><a href="#">Status Layanan</a></li>
+              <li><a href="#">Laporkan Masalah</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2025 LearnUp. Semua hak dilindungi. Dibuat dengan
+            <span class="heart">❤️</span> di Indonesia.
+          </p>
+          <p>Tim LearnUp · v3.0.0 · Mobile-First Responsive</p>
+        </div>
+      </footer>
+
+      <!-- ============================================================ LOGIN MODAL ============================================================ -->
+      <div class="login-overlay" id="loginOverlay">
+        <div class="login-modal">
+          <div class="login-header">
+            <div class="login-icon">🔒</div>
+            <h2>Admin Login</h2>
+            <p>Masukkan password untuk mengakses Dashboard Admin.</p>
+          </div>
+          <div class="login-body">
+            <input type="password" id="adminPassword" placeholder="Password Admin" onkeydown="if(event.key==='Enter') submitLogin()" />
+            <div class="login-actions">
+              <button class="btn-cancel" onclick="closeLoginModal()">Batal</button>
+              <button class="btn-submit" onclick="submitLogin()">Masuk <i class="fas fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================ JAVASCRIPT ============================================================ -->
+      <script src="js/landing.js"></script>
+</body>
+  </html>
