@@ -24,7 +24,12 @@
 
     <!-- MOBILE TOPBAR -->
     <div class="mobile-topbar">
-      <span class="mobile-logo">🎓 LearnUp Admin</span>
+      <div style="display: flex; align-items: center; gap: 0.8rem">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <span class="mobile-logo">🎓 LearnUp Admin</span>
+      </div>
       <div class="live-badge">
         <div class="live-dot"></div>
         LIVE
@@ -33,8 +38,11 @@
 
     <!-- WRAPPER -->
     <div class="wrapper">
+      <!-- SIDEBAR OVERLAY -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
       <!-- SIDEBAR -->
-      <aside class="sidebar">
+      <aside class="sidebar" id="adminSidebar">
         <div class="sidebar-logo">
           <div class="sidebar-logo-icon">🎓</div>
           <div>

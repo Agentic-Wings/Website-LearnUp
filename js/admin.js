@@ -568,3 +568,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ── MOBILE SIDEBAR ──
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const sidebar = document.getElementById("adminSidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+
+  if (hamburgerBtn && sidebar && overlay) {
+    function toggleSidebar() {
+      sidebar.classList.toggle("open");
+      overlay.classList.toggle("show");
+    }
+
+    hamburgerBtn.addEventListener("click", toggleSidebar);
+    overlay.addEventListener("click", toggleSidebar);
+
+    // Close sidebar when clicking a nav item on mobile
+    const navItems = sidebar.querySelectorAll(".nav-item");
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        if (window.innerWidth <= 900) {
+          sidebar.classList.remove("open");
+          overlay.classList.remove("show");
+        }
+      });
+    });
+  }
+});
