@@ -72,6 +72,24 @@ body {
   position: relative;
 }
 
+/* ── SIDEBAR ── */
+.sidebar {
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .wrapper {
     grid-template-columns: 1fr;
@@ -91,6 +109,7 @@ body {
     left: 0;
   }
   .sidebar-overlay {
+    display: block;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
@@ -104,20 +123,6 @@ body {
     opacity: 1;
     pointer-events: auto;
   }
-}
-
-/* ── SIDEBAR ── */
-.sidebar {
-  background: var(--bg2);
-  border-right: 1px solid var(--border);
-  padding: 2rem 1.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
 }
 
 .sidebar-logo {
